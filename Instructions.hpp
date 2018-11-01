@@ -6,6 +6,7 @@
 #include <vector>
 #include "MemoryMap.hpp"
 #include "RegisterMap.hpp"
+
 typedef unsigned char byte;
 
 namespace Clarkitechture
@@ -57,6 +58,20 @@ namespace Clarkitechture
 			using RInstruction::RInstruction;
 			void execute(MemoryMap &mem, RegisterMap &reg) override;
 		};
+        
+        class ADDUInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class ADDIUInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
 
 		class ADDIInstr : public IInstruction
 		{
@@ -71,6 +86,55 @@ namespace Clarkitechture
 			using RInstruction::RInstruction;
 			void execute(MemoryMap &mem, RegisterMap &reg) override;
 		};
+        
+        class SUBUInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class ANDInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class ANDIInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class ORInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class ORIInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class XORInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class XORIInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
 	}
 }
 
