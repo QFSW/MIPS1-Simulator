@@ -56,6 +56,29 @@ namespace Clarkitechture
             using IInstruction::IInstruction;
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
+        
+        class LWInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            uint32_t data;
+        };
+        
+        class SWInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            uint32_t data;
+            uint32_t addr;
+        };
     }
 }
 

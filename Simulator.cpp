@@ -22,15 +22,15 @@ void Simulator::loadMachineCode(std::string fileName)
     instrCount = size / 4;
     instrs.resize(instrCount);
     
-    char currChar = 0;
+    byte currChar = 0;
+    char* currCharPtr = reinterpret_cast<char*>(&currChar);
     uint32_t currWord = 0;
     for (size_t i = 0; i < size; ++i)
     {
         int j = i % 4;
         size_t k = i / 4;
-        binstream.read(&currChar, sizeof(char));
+        binstream.read(currCharPtr, 1);
         currWord |= (currChar << 8 * (3 - j));
-        
         
         if (j == 3)
         {

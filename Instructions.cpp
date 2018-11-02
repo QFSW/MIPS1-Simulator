@@ -54,7 +54,7 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b000011: return new SRAInstr(rs, rt, rd, shamt);
     case 0b000111: return new SRAVInstr(rs, rt, rd, shamt);
     default:
-        throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toHexStr(funct));
+        throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toBinStr(funct));
 	}
 }
 
@@ -74,8 +74,10 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b001110: return new XORIInstr(rs, rt, constant);
     case 0b001010: return new SLTIInstr(rs, rt, constant);
     case 0b001011: return new SLTIUInstr(rs, rt, constant);
+    case 0b100011: return new LWInstr(rs, rt, constant);
+    case 0b101011: return new SWInstr(rs, rt, constant);
     default:
-		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toHexStr(opcode));
+		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));
 	}
 }
 

@@ -9,7 +9,7 @@
 using namespace Clarkitechture::MIPS;
 int main(int argc, const char * argv[])
 {
-    std::string fileName = "tst.bin";
+    std::string fileName = "hello.bin";
     Simulator sim;
     
     try

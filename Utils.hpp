@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <string>
 #include <sstream>
+#include <bitset>
 
 namespace Clarkitechture
 {
@@ -19,6 +20,14 @@ namespace Clarkitechture
         }
         
         std::string toHexStr(uint32_t hex);
+        
+        template <typename T>
+        std::string toBinStr(T bin)
+        {
+            std::stringstream binStream;
+            binStream << std::bitset<sizeof(T)>(bin);
+            return "0b" + binStream.str();
+        }
     }
 }
 
