@@ -45,8 +45,8 @@ void Simulator::executeNext()
     reg.PC += 4;
     size_t index = currInstrIndex();
     
-    if (previousInstr) { previousInstr->delayedExecute(mem, reg); }
     instrs[index]->execute(mem, reg);
+    if (previousInstr) { previousInstr->delayedExecute(mem, reg); }
     previousInstr = instrs[index];
 }
 

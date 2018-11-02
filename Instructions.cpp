@@ -28,16 +28,30 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
 
 	switch (funct)
 	{
-	case 0b100000: return new ADDInstr(rs, rt, rd, shamt);
+    case 0b100000: return new ADDInstr(rs, rt, rd, shamt);
     case 0b100001: return new ADDUInstr(rs, rt, rd, shamt);
-	case 0b100010: return new SUBInstr(rs, rt, rd, shamt);
+    case 0b100010: return new SUBInstr(rs, rt, rd, shamt);
     case 0b100011: return new SUBUInstr(rs, rt, rd, shamt);
     case 0b100100: return new ANDInstr(rs, rt, rd, shamt);
-	case 0b100101: return new ORInstr(rs, rt, rd, shamt);
+    case 0b100101: return new ORInstr(rs, rt, rd, shamt);
     case 0b100110: return new XORInstr(rs, rt, rd, shamt);
     case 0b001000: return new JRInstr(rs, rt, rd, shamt);
+    case 0b011000: return new MULTInstr(rs, rt, rd, shamt);
+    case 0b011001: return new MULTUInstr(rs, rt, rd, shamt);
+    case 0b011010: return new DIVInstr(rs, rt, rd, shamt);
+    case 0b011011: return new DIVUInstr(rs, rt, rd, shamt);
+    case 0b010000: return new MFHIInstr(rs, rt, rd, shamt);
+    case 0b010010: return new MFLOInstr(rs, rt, rd, shamt);
+    case 0b010001: return new MTHIInstr(rs, rt, rd, shamt);
+    case 0b010011: return new MTLOInstr(rs, rt, rd, shamt);
+    case 0b101010: return new SLTInstr(rs, rt, rd, shamt);
+    case 0b101001: return new SLTUInstr(rs, rt, rd, shamt);
+    case 0b000000: return new SLLInstr(rs, rt, rd, shamt);
+    case 0b000100: return new SLLVInstr(rs, rt, rd, shamt);
+    case 0b000011: return new SRAInstr(rs, rt, rd, shamt);
+    case 0b000111: return new SRAVInstr(rs, rt, rd, shamt);
     default:
-		throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toHexStr(funct));
+        throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toHexStr(funct));
 	}
 }
 
@@ -55,6 +69,8 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
 	case 0b100100: return new ANDIInstr(rs, rt, constant);
     case 0b001101: return new ORIInstr(rs, rt, constant);
     case 0b001110: return new XORIInstr(rs, rt, constant);
+    case 0b001010: return new SLTIInstr(rs, rt, constant);
+    case 0b001001: return new SLTIUInstr(rs, rt, constant);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toHexStr(opcode));
 	}
