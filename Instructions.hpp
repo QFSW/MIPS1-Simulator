@@ -137,11 +137,29 @@ namespace Clarkitechture
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
         
-        class JRInstr : public RInstruction
+        class JumpRInstruction : public RInstruction
         {
         public:
             using RInstruction::RInstruction;
+            
+        protected:
+            uint32_t jumpAddr;
+        };
+        
+        class JRInstr : public JumpRInstruction
+        {
+        public:
+            using JumpRInstruction::JumpRInstruction;
             void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class JALRInstr : public JumpRInstruction
+        {
+        public:
+            using JumpRInstruction::JumpRInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
         };
         
         class MULTInstr : public RInstruction

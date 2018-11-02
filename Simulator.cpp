@@ -44,27 +44,37 @@ void Simulator::executeNext()
 {
     reg.PC += 4;
     size_t index = currInstrIndex();
+    std::shared_ptr<Instruction> currentInstr;
     
-    instrs[index]->execute(mem, reg);
+    if (index < instrCount)
+    {
+        currentInstr = instrs[index];
+        currentInstr->execute(mem, reg);
+    }
+    else { currentInstr = nullptr; }
     if (previousInstr) { previousInstr->delayedExecute(mem, reg); }
-    previousInstr = instrs[index];
+    
+    if (!currentInstr && !previousInstr)
+    {
+        throw BadProgramCounter(reg.PC - 4, "PC was outside of the instruction memory space.");
+    }
+    
+    previousInstr = currentInstr;
 }
 
 size_t Simulator::currInstrIndex()
 {
     if (reg.PC % 4 > 0) { throw BadProgramCounter(reg.PC, "word misaligned PC"); }
-    size_t index = reg.PC / 4 - 1;
-    
-    if (index >= instrCount) { throw BadProgramCounter(reg.PC - 4, "PC was outside of the instruction memory space."); }
-    return index;
+    return reg.PC / 4 - 1;
 }
 
 bool Simulator::isDone()
 {
-    return reg.PC == 0x0 && previousInstr != nullptr;
+    return reg.PC == 0x0;
 }
 
 void Simulator::simulate()
 {
-    while (!isDone()) { executeNext(); }
+    do { executeNext(); }
+    while (!isDone());
 }

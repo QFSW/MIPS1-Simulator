@@ -36,6 +36,7 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b100101: return new ORInstr(rs, rt, rd, shamt);
     case 0b100110: return new XORInstr(rs, rt, rd, shamt);
     case 0b001000: return new JRInstr(rs, rt, rd, shamt);
+    case 0b001001: return new JALRInstr(rs, rt, rd, shamt);
     case 0b011000: return new MULTInstr(rs, rt, rd, shamt);
     case 0b011001: return new MULTUInstr(rs, rt, rd, shamt);
     case 0b011010: return new DIVInstr(rs, rt, rd, shamt);
@@ -70,7 +71,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b001101: return new ORIInstr(rs, rt, constant);
     case 0b001110: return new XORIInstr(rs, rt, constant);
     case 0b001010: return new SLTIInstr(rs, rt, constant);
-    case 0b001001: return new SLTIUInstr(rs, rt, constant);
+    case 0b001011: return new SLTIUInstr(rs, rt, constant);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toHexStr(opcode));
 	}
@@ -199,8 +200,23 @@ void XORIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void JRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs);
-    reg.PC = addr;
+    jumpAddr = reg.read(rs);
+}
+
+void JRInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.PC = jumpAddr;
+}
+
+void JALRInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    jumpAddr = reg.read(rs);
+    reg.write(reg.PC + 8, 31);
+}
+
+void JALRInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.PC = jumpAddr;
 }
 
 void MULTInstr::execute(MemoryMap &mem, RegisterMap& reg)
