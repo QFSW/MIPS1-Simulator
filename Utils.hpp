@@ -2,6 +2,9 @@
 #define Utils_hpp
 
 #include <stdio.h>
+#include <stdint.h>
+#include <string>
+#include <sstream>
 
 namespace Clarkitechture
 {
@@ -14,6 +17,8 @@ namespace Clarkitechture
             if (a >= 0 & b >= 0) { return true; }
             else { return false; }
         }
+        
+        std::string toHexStr(uint32_t hex);
     }
 }
 

@@ -5,6 +5,7 @@
 #include "Instructions.hpp"
 #include "MemoryMap.hpp"
 #include "RegisterMap.hpp"
+#include "ExceptionHandling.hpp"
 #include "Utils.hpp"
 
 using namespace Clarkitechture::MIPS;
@@ -14,7 +15,7 @@ Instruction* BinaryDecoder::decodeInstruction(uint32_t bin)
 {
 	byte opcode = 0b111111 & (bin >> (32 - 6));
 	if (opcode == 0) { return decodeRInstruction(bin); }
-	else { throw "rip"; }
+	else { return decodeIInstruction(bin); }
 }
 
 RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
@@ -34,8 +35,9 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b100100: return new ANDInstr(rs, rt, rd, shamt);
 	case 0b100101: return new ORInstr(rs, rt, rd, shamt);
     case 0b100110: return new XORInstr(rs, rt, rd, shamt);
+    case 0b001000: return new JRInstr(rs, rt, rd, shamt);
     default:
-		throw "rip";
+		throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toHexStr(funct));
 	}
 }
 
@@ -54,7 +56,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b001101: return new ORIInstr(rs, rt, constant);
     case 0b001110: return new XORIInstr(rs, rt, constant);
     default:
-		throw "rip";
+		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toHexStr(opcode));
 	}
 }
 
@@ -177,5 +179,11 @@ void XORIInstr::execute(MemoryMap &mem, RegisterMap& reg)
     uint32_t left = reg.read(rs);
     uint32_t result = left ^ constant;
     reg.write(rt, result);
+}
+
+void JRInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs);
+    reg.PC = addr;
 }
 

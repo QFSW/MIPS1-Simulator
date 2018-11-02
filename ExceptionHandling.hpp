@@ -44,6 +44,44 @@ namespace Clarkitechture
             std::string innerException;
             size_t badAddress;
         };
+        
+        class BadInstructionDecode : public MIPSException
+        {
+        public:
+            BadInstructionDecode(uint32_t badInstr, std::string innerException);
+            
+        protected:
+            void createMessage();
+            
+        private:
+            std::string innerException;
+            uint32_t badInstr;
+        };
+        
+        class BadBinaryIO : public MIPSException
+        {
+        public:
+            BadBinaryIO(std::string innerException);
+            
+        protected:
+            void createMessage();
+            
+        private:
+            std::string innerException;
+        };
+        
+        class BadProgramCounter : public MIPSException
+        {
+        public:
+            BadProgramCounter(uint32_t badPC, std::string innerException);
+            
+        protected:
+            void createMessage();
+            
+        private:
+            std::string innerException;
+            uint32_t badPC;  
+        };
     }
 }
 

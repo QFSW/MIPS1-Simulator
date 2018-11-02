@@ -17,10 +17,17 @@ namespace Clarkitechture
         {
         public:
             void loadMachineCode(std::string fileName);
+            void simulate();
             
         private:
+            bool isDone();
+            void executeNext();
+            size_t currInstrIndex();
+            
             size_t instrCount = 0;
-            std::vector<std::unique_ptr<Instruction>> instrs;
+            std::vector<std::shared_ptr<Instruction>> instrs;
+            std::shared_ptr<Instruction> previousInstr;
+            
             RegisterMap reg;
             MemoryMap mem;
         };

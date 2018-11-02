@@ -136,6 +136,13 @@ namespace Clarkitechture
             using IInstruction::IInstruction;
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
+        
+        class JRInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
 	}
 }
 

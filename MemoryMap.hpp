@@ -33,7 +33,6 @@ namespace Clarkitechture
 			static const size_t ADDR_DATA_LENGTH = 0x4000000;
 
 			byte* memory;
-            int blah;
 		};
 	}
 }

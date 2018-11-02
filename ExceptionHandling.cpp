@@ -1,9 +1,10 @@
 #include "ExceptionHandling.hpp"
+#include "Utils.hpp"
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace Clarkitechture::MIPS;
+using namespace Clarkitechture::Utils;
 
 BadRegisterRead::BadRegisterRead(size_t badIndex)
 {
@@ -30,7 +31,40 @@ BadMemoryAccess::BadMemoryAccess(size_t badAddress, std::string innerException)
 
 void BadMemoryAccess::createMessage()
 {
-    std::stringstream hexStream;
-    hexStream << std::hex << std::uppercase << badAddress;
-    message = "Illegal Memory Operation at 0x" + hexStream.str() + ": " + innerException;
+    message = "Illegal Memory Operation at " + toHexStr(badAddress) + ": " + innerException;
+}
+
+BadInstructionDecode::BadInstructionDecode(uint32_t badInstr, std::string innerException)
+{
+    this->badInstr = badInstr;
+    this->innerException = innerException;
+    createMessage();
+}
+
+void BadInstructionDecode::createMessage()
+{
+    message = "Illegal instruction " + toHexStr(badInstr) + ": " + innerException;
+}
+
+BadBinaryIO::BadBinaryIO(std::string innerException)
+{
+    this->innerException = innerException;
+    createMessage();
+}
+
+void BadBinaryIO::createMessage()
+{
+    message = "Binary IO error: " + innerException;
+}
+
+BadProgramCounter::BadProgramCounter(uint32_t badPC, std::string innerException)
+{
+    this->badPC = badPC;
+    this->innerException = innerException;
+    createMessage();
+}
+
+void BadProgramCounter::createMessage()
+{
+    message = "Illegal PC " + toHexStr(badPC) + ": " + innerException;
 }
