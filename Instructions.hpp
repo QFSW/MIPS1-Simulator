@@ -17,6 +17,7 @@ namespace Clarkitechture
 		{
 		public:
 			virtual void execute(MemoryMap &mem, RegisterMap &reg) = 0;
+            virtual void delayedExecute(MemoryMap &mem, RegisterMap &reg);
 		};
 
 		class RInstruction : public Instruction

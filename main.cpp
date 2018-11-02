@@ -2,7 +2,7 @@
 #include "RegisterMap.hpp"
 #include "ExceptionHandling.hpp"
 #include "MemoryMap.hpp"
-#include "BinaryIO.hpp"
+#include "Simulator.hpp"
 #include <stdint.h>
 #include <vector>
 

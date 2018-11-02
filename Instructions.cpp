@@ -58,6 +58,8 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
 	}
 }
 
+void Instruction::delayedExecute(MemoryMap &mem, RegisterMap &reg) { }
+
 RInstruction::RInstruction(byte rs, byte rt, byte rd, byte shamt)
 {
 	this->rs = rs;
