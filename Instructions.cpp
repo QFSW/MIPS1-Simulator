@@ -187,3 +187,139 @@ void JRInstr::execute(MemoryMap &mem, RegisterMap& reg)
     reg.PC = addr;
 }
 
+void MULTInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int64_t left = reg.read(rs);
+    int64_t right = reg.read(rt);
+    int64_t result = left * right;
+    reg.lo = 0xFFFFFFFF & result;
+    reg.hi = 0xFFFFFFFF & (result >> 32);
+}
+
+void MULTUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint64_t left = reg.read(rs);
+    uint64_t right = reg.read(rt);
+    uint64_t result = left * right;
+    reg.lo = 0xFFFFFFFF & result;
+    reg.hi = 0xFFFFFFFF & (result >> 32);
+}
+
+void DIVInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int32_t left = reg.read(rs);
+    int32_t right = reg.read(rt);
+    
+    if (right == 0) { throw "Division by 0"; }
+    
+    int32_t quotient = left / right;
+    int32_t remainder = left % right;
+    reg.lo = quotient;
+    reg.hi = remainder;
+}
+
+void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t left = reg.read(rs);
+    uint32_t right = reg.read(rt);
+    
+    if (right == 0) { throw "Division by 0"; }
+    
+    uint32_t quotient = left / right;
+    uint32_t remainder = left % right;
+    reg.lo = quotient;
+    reg.hi = remainder;
+}
+
+void MFHIInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.write(rd, reg.hi);
+}
+
+void MFLOInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.write(rd, reg.lo);
+}
+
+void MTHIInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.hi = reg.read(rs);
+}
+
+void MTLOInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.lo = reg.read(rs);
+}
+
+void SLTInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int32_t left = reg.read(rs);
+    int32_t right = reg.read(rt);
+    reg.write(rd, left < right ? 1 : 0);
+}
+
+void SLTIInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int32_t left = reg.read(rs);
+    int32_t right = constant;
+    reg.write(rt, left < right ? 1 : 0);
+}
+
+void SLTIUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t left = reg.read(rs);
+    reg.write(rt, left < constant ? 1 : 0);
+}
+
+void SLTUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t left = reg.read(rs);
+    uint32_t right = reg.read(rt);
+    reg.write(rd, left < right ? 1 : 0);
+}
+
+void SLLInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t value = reg.read(rt);
+    value = value << shamt;
+    reg.write(rd, value);
+}
+
+void SLLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t value = reg.read(rt);
+    uint32_t newShamt = reg.read(rs);
+    value = value << newShamt;
+    reg.write(rd, value);
+}
+
+void SRLInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t value = reg.read(rt);
+    value = value >> shamt;
+    reg.write(rd, value);
+}
+
+void SRLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t value = reg.read(rt);
+    uint32_t newShamt = reg.read(rs);
+    value = value >> newShamt;
+    reg.write(rd, value);
+}
+
+void SRAInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int32_t value = reg.read(rt);
+    value = value >> shamt;
+    reg.write(rd, value);
+}
+
+void SRAVInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    int32_t value = reg.read(rt);
+    uint32_t newShamt = reg.read(rs);
+    value = value >> newShamt;
+    reg.write(rd, value);
+}
+

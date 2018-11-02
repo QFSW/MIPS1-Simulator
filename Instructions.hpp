@@ -143,6 +143,132 @@ namespace Clarkitechture
             using RInstruction::RInstruction;
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
+        
+        class MULTInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class MULTUInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class DIVInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class DIVUInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class MFHIInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class MFLOInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class MTHIInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class MTLOInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLTInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLTIInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLTIUInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLTUInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLLInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SLLVInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SRLInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SRLVInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SRAInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
+        class SRAVInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
 	}
 }
 
