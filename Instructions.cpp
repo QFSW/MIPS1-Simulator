@@ -75,7 +75,9 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b001010: return new SLTIInstr(rs, rt, constant);
     case 0b001011: return new SLTIUInstr(rs, rt, constant);
     case 0b100011: return new LWInstr(rs, rt, constant);
+    case 0b100000: return new LBInstr(rs, rt, constant);
     case 0b101011: return new SWInstr(rs, rt, constant);
+    case 0b101000: return new SBInstr(rs, rt, constant);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));
 	}

@@ -68,6 +68,17 @@ namespace Clarkitechture
             uint32_t data;
         };
         
+        class LBInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            byte data;
+        };
+        
         class SWInstr : public IInstruction
         {
         public:
@@ -77,6 +88,18 @@ namespace Clarkitechture
             
         private:
             uint32_t data;
+            uint32_t addr;
+        };
+        
+        class SBInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            byte data;
             uint32_t addr;
         };
     }
