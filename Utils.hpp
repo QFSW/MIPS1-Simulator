@@ -19,7 +19,7 @@ namespace Clarkitechture
             else { return false; }
         }
         
-        std::string toHexStr(uint32_t hex);
+        std::string toHexStr(size_t hex);
         
         template <typename T>
         std::string toBinStr(T bin)

@@ -79,6 +79,17 @@ namespace Clarkitechture
             byte data;
         };
         
+        class LBUInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            byte data;
+        };
+        
         class SWInstr : public IInstruction
         {
         public:

@@ -69,13 +69,14 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
 	{
 	case 0b001000: return new ADDIInstr(rs, rt, constant);
     case 0b001001: return new ADDIUInstr(rs, rt, constant);
-	case 0b100100: return new ANDIInstr(rs, rt, constant);
+	case 0b001100: return new ANDIInstr(rs, rt, constant);
     case 0b001101: return new ORIInstr(rs, rt, constant);
     case 0b001110: return new XORIInstr(rs, rt, constant);
     case 0b001010: return new SLTIInstr(rs, rt, constant);
     case 0b001011: return new SLTIUInstr(rs, rt, constant);
     case 0b100011: return new LWInstr(rs, rt, constant);
     case 0b100000: return new LBInstr(rs, rt, constant);
+    case 0b100100: return new LBUInstr(rs, rt, constant);
     case 0b101011: return new SWInstr(rs, rt, constant);
     case 0b101000: return new SBInstr(rs, rt, constant);
     default:

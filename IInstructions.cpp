@@ -77,6 +77,17 @@ void LBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void LBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 {
+    reg.write(rt, (int32_t)(char)data);
+}
+
+void LBUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs) + constant;
+    data = mem.readByte(addr);
+}
+
+void LBUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
+{
     reg.write(rt, data);
 }
 
