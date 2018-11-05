@@ -57,6 +57,13 @@ namespace Clarkitechture
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
         
+        class LUIInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
         class LWInstr : public IInstruction
         {
         public:

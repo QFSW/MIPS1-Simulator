@@ -55,6 +55,12 @@ void SLTIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void SLTIUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
+    uint32_t value = constant << 16;
+    reg.write(rt, value);
+}
+
+void LUIInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
     uint32_t left = reg.read(rs);
     reg.write(rt, left < constant ? 1 : 0);
 }
