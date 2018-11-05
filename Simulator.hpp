@@ -21,7 +21,7 @@ namespace Clarkitechture
             byte getExitCode() const;
             
         private:
-            bool isDone();
+            bool isDone() const;
             void executeNext();
             size_t currInstrIndex();
             

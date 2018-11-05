@@ -60,7 +60,7 @@ size_t Simulator::currInstrIndex()
     return reg.PC / 4 - 1;
 }
 
-bool Simulator::isDone()
+bool Simulator::isDone() const
 {
     return reg.PC == 0x0;
 }

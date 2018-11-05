@@ -25,7 +25,7 @@ namespace Clarkitechture
         std::string toBinStr(T bin)
         {
             std::stringstream binStream;
-            binStream << std::bitset<sizeof(T)>(bin);
+            binStream << std::bitset<sizeof(T) * 8>(bin);
             return "0b" + binStream.str();
         }
     }
