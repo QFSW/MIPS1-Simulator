@@ -52,17 +52,6 @@ namespace Clarkitechture
             uint32_t target;
         };
 
-		class BinaryDecoder
-		{
-		public:
-			static Instruction* decodeInstruction(uint32_t bin);
-
-		private:
-			static RInstruction* decodeRInstruction(uint32_t bin);
-			static IInstruction* decodeIInstruction(uint32_t bin);
-            static JInstruction* decodeJInstruction(uint32_t bin);
-		};
-        
         class JumpRInstruction : public RInstruction
         {
         public:
@@ -81,12 +70,25 @@ namespace Clarkitechture
             void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
             
         protected:
+            virtual bool requiresLink() const;
             virtual bool evaluateCondition(const RegisterMap& reg) const = 0;
             
         private:
             bool conditionMet;
             uint32_t branchAddr;
         };
+        
+		class BinaryDecoder
+		{
+		public:
+			static Instruction* decodeInstruction(uint32_t bin);
+
+		private:
+			static RInstruction* decodeRInstruction(uint32_t bin);
+			static IInstruction* decodeIInstruction(uint32_t bin);
+            static JInstruction* decodeJInstruction(uint32_t bin);
+            static BranchIInstruction* decodeBranchInstruction(uint32_t bin);
+		};
 	}
 }
 

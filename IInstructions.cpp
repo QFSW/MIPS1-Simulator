@@ -113,6 +113,12 @@ bool BEQInstr::evaluateCondition(const RegisterMap& reg) const
     return left == right;
 }
 
+bool BGEZInstr::evaluateCondition(const RegisterMap& reg) const
+{
+    int32_t left = reg.read(rs);
+    return left >= 0;
+}
+
 bool BNEInstr::evaluateCondition(const RegisterMap& reg) const
 {
     uint32_t left = reg.read(rs);

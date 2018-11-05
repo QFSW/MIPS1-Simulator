@@ -95,9 +95,24 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b101000: return new SBInstr(rs, rt, constant);
     case 0b000100: return new BEQInstr(rs, rt, constant);
     case 0b000101: return new BNEInstr(rs, rt, constant);
+    case 0b000001: return decodeBranchInstruction(bin);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));
 	}
+}
+
+BranchIInstruction* BinaryDecoder::decodeBranchInstruction(uint32_t bin)
+{
+    byte rs = 0b11111 & (bin >> (32 - (6 + 5)));
+    byte cond = 0b11111 & (bin >> (32 - (6 + 5 + 5)));
+    uint16_t constant = 0xFFFF & bin;
+    
+    switch (cond)
+    {
+        case 0b000001: return new BGEZInstr(rs, cond, constant);
+        default:
+            throw BadInstructionDecode(bin, "invalid or unsupported branch condition - " + toBinStr(cond));
+    }
 }
 
 void Instruction::delayedExecute(MemoryMap &mem, RegisterMap &reg) { }
@@ -126,6 +141,7 @@ void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
 {
     branchAddr = reg.PC + constant * 4;
     conditionMet = evaluateCondition(reg);
+    if (requiresLink()) { reg.write(reg.PC + 8, 31); }
 }
 
 void BranchIInstruction::delayedExecute(MemoryMap &mem, RegisterMap &reg)
@@ -135,3 +151,5 @@ void BranchIInstruction::delayedExecute(MemoryMap &mem, RegisterMap &reg)
         reg.PC = branchAddr;
     }
 }
+
+bool BranchIInstruction::requiresLink() const { return false; }
