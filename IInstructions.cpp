@@ -9,7 +9,7 @@ using namespace Clarkitechture::Utils;
 void ADDIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t left = reg.read(rs);
-    int32_t right = constant;
+    int32_t right = (int16_t)constant;
     int32_t result = left + right;
     
     bool overflow = sameSign(left, right) && !sameSign(left, result);
@@ -49,7 +49,7 @@ void XORIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SLTIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t left = reg.read(rs);
-    int32_t right = constant;
+    int32_t right = (int16_t)constant;
     reg.write(rt, left < right ? 1 : 0);
 }
 
