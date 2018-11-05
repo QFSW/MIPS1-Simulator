@@ -122,6 +122,13 @@ namespace Clarkitechture
             bool evaluateCondition(const RegisterMap& reg) const override;
         };
         
+        class BGEZALInstr : public BGEZInstr
+        {
+        public:
+            using BGEZInstr::BGEZInstr;
+            bool requiresLink() const override;
+        };
+        
         class BNEInstr : public BranchIInstruction
         {
         public:

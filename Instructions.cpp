@@ -110,6 +110,7 @@ BranchIInstruction* BinaryDecoder::decodeBranchInstruction(uint32_t bin)
     switch (cond)
     {
         case 0b000001: return new BGEZInstr(rs, cond, constant);
+        case 0b100001: return new BGEZALInstr(rs, cond, constant);
         default:
             throw BadInstructionDecode(bin, "invalid or unsupported branch condition - " + toBinStr(cond));
     }
