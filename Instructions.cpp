@@ -91,6 +91,8 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b100011: return new LWInstr(rs, rt, constant);
     case 0b100000: return new LBInstr(rs, rt, constant);
     case 0b100100: return new LBUInstr(rs, rt, constant);
+    case 0b100001: return new LHInstr(rs, rt, constant);
+    case 0b100101: return new LHUInstr(rs, rt, constant);
     case 0b101011: return new SWInstr(rs, rt, constant);
     case 0b101000: return new SBInstr(rs, rt, constant);
     case 0b000100: return new BEQInstr(rs, rt, constant);

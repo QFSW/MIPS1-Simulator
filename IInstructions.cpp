@@ -92,6 +92,28 @@ void LBUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
     reg.write(rt, data);
 }
 
+void LHInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs) + constant;
+    data = mem.read<uint16_t>(addr);
+}
+
+void LHInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.write(rt, (int32_t)(int16_t)data);
+}
+
+void LHUInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs) + constant;
+    data = mem.read<uint16_t>(addr);
+}
+
+void LHUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
+{
+    reg.write(rt, data);
+}
+
 void SWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
