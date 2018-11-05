@@ -62,7 +62,7 @@ void SLTIUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void LWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
-    data = mem.readWord(addr);
+    data = mem.read<uint32_t>(addr);
 }
 
 void LWInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
@@ -73,7 +73,7 @@ void LWInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 void LBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
-    data = mem.readByte(addr);
+    data = mem.read<byte>(addr);
 }
 
 void LBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
@@ -84,7 +84,7 @@ void LBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 void LBUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
-    data = mem.readByte(addr);
+    data = mem.read<byte>(addr);
 }
 
 void LBUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
@@ -96,14 +96,14 @@ void SWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
     uint32_t data = reg.read(rt);
-    mem.writeWord(addr, data);
+    mem.write<uint32_t>(addr, data);
 }
 
 void SBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + constant;
     byte data = (byte)reg.read(rt);
-    mem.writeByte(addr, data);
+    mem.write<byte>(addr, data);
 }
 
 bool BEQInstr::evaluateCondition(const RegisterMap& reg) const
