@@ -72,6 +72,21 @@ namespace Clarkitechture
         protected:
             uint32_t jumpAddr;
         };
+        
+        class BranchIInstruction : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            void delayedExecute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        protected:
+            virtual bool evaluateCondition(const RegisterMap& reg) const = 0;
+            
+        private:
+            bool conditionMet;
+            uint32_t branchAddr;
+        };
 	}
 }
 

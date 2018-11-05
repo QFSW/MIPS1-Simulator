@@ -92,6 +92,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b100100: return new LBUInstr(rs, rt, constant);
     case 0b101011: return new SWInstr(rs, rt, constant);
     case 0b101000: return new SBInstr(rs, rt, constant);
+    case 0b000100: return new BEQInstr(rs, rt, constant);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));
 	}
@@ -117,4 +118,18 @@ IInstruction::IInstruction(byte rs, byte rt, uint16_t constant)
 void JumpRInstruction::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 {
     reg.PC = jumpAddr;
+}
+
+void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
+{
+    branchAddr = reg.PC - 4 + constant * 4;
+    conditionMet = evaluateCondition(reg);
+}
+
+void BranchIInstruction::delayedExecute(MemoryMap &mem, RegisterMap &reg)
+{
+    if (conditionMet)
+    {
+        reg.PC = branchAddr;
+    }
 }
