@@ -22,21 +22,13 @@ void Simulator::loadMachineCode(std::string fileName)
     instrCount = size / 4;
     instrs.resize(instrCount);
     
-    byte currChar = 0;
-    char* currCharPtr = reinterpret_cast<char*>(&currChar);
     uint32_t currWord = 0;
-    for (size_t i = 0; i < size; ++i)
+    char* currWordPtr = reinterpret_cast<char*>(&currWord);
+    for (size_t i = 0; i < instrCount; ++i)
     {
-        int j = i % 4;
-        size_t k = i / 4;
-        binstream.read(currCharPtr, 1);
-        currWord |= (currChar << 8 * (3 - j));
-        
-        if (j == 3)
-        {
-            instrs[k] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(currWord));
-            currWord = 0;
-        }
+        binstream.read(currWordPtr, 4);
+        currWord = __builtin_bswap32(currWord);
+        instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(currWord));
     }
 }
 
