@@ -95,6 +95,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b101000: return new SBInstr(rs, rt, constant);
     case 0b000100: return new BEQInstr(rs, rt, constant);
     case 0b000111: return new BGTZInstr(rs, rt, constant);
+    case 0b000110: return new BLEZInstr(rs, rt, constant);
     case 0b000101: return new BNEInstr(rs, rt, constant);
     case 0b000001: return decodeBranchInstruction(bin);
     default:
