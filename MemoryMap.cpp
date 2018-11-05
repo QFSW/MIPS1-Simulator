@@ -36,8 +36,7 @@ uint32_t MemoryMap::readWord(size_t address)
 
 byte MemoryMap::readByte(size_t address)
 {
-    if (address == ADDR_GETC + 3) { return std::getchar(); }
-    else if (address >= ADDR_DATA && address < ADDR_DATA + ADDR_DATA_LENGTH)
+    if (address >= ADDR_DATA && address < ADDR_DATA + ADDR_DATA_LENGTH)
     {
         byte* memLocation = memory + (address - ADDR_DATA);
         byte data = *memLocation;

@@ -1,5 +1,6 @@
 #include "RInstructions.hpp"
 #include "Instructions.hpp"
+#include "ExceptionHandling.hpp"
 #include "Utils.hpp"
 
 using namespace Clarkitechture::MIPS;
@@ -12,7 +13,7 @@ void ADDInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t result = left + right;
     
     bool overflow = sameSign(left, right) && !sameSign(left, result);
-    if (overflow) { throw "overflow exception"; }
+    if (overflow) { throw BadArithmeticOperation("ADD encountered an overflow"); }
     
     reg.write(rd, result);
 }
@@ -32,7 +33,7 @@ void SUBInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t result = left - right;
     
     bool overflow = sameSign(left, -right) && !sameSign(left, result);
-    if (overflow) { throw "overflow exception"; }
+    if (overflow) { throw BadArithmeticOperation("SUB encountered an overflow"); }
     
     reg.write(rd, result);
 }
@@ -92,7 +93,7 @@ void DIVInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t left = reg.read(rs);
     int32_t right = reg.read(rt);
     
-    if (right == 0) { throw "Division by 0"; }
+    if (right == 0) { throw BadArithmeticOperation("DIV encountered a division by 0"); }
     
     int32_t quotient = left / right;
     int32_t remainder = left % right;
@@ -105,7 +106,7 @@ void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
     uint32_t left = reg.read(rs);
     uint32_t right = reg.read(rt);
     
-    if (right == 0) { throw "Division by 0"; }
+    if (right == 0) { throw BadArithmeticOperation("DIVU encountered a division by 0"); }
     
     uint32_t quotient = left / right;
     uint32_t remainder = left % right;
@@ -200,5 +201,5 @@ void JRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void JALRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     jumpAddr = reg.read(rs);
-    reg.write(reg.PC + 8, 31);
+    reg.write(reg.PC + 8, rd);
 }

@@ -12,7 +12,7 @@ namespace Clarkitechture
         {
         public:
             uint32_t PC = 0;
-            
+                
             uint32_t hi = 0;
             uint32_t lo = 0;
             

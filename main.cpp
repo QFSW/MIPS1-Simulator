@@ -9,7 +9,7 @@
 using namespace Clarkitechture::MIPS;
 int main(int argc, const char * argv[])
 {
-    std::string fileName = "hello.bin";
+    std::string fileName = "lw3.bin";
     Simulator sim;
     
     try
@@ -22,6 +22,10 @@ int main(int argc, const char * argv[])
         std::cout << "\n=====================" << std::endl;
         std::cout << "simulation success\n";
     }
-    catch (const MIPSException &e) { std::cout << "\n\n" << e.what() << std::endl; }
+    catch (const MIPSException &e)
+    {
+        std::cout << "\n\nsimulation failed\n" << e.what() << std::endl;
+        std::exit(e.exitCode());
+    }
     return 0;
 }

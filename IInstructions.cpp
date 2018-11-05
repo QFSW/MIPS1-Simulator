@@ -1,5 +1,6 @@
 #include "IInstructions.hpp"
 #include "Instructions.hpp"
+#include "ExceptionHandling.hpp"
 #include "Utils.hpp"
 
 using namespace Clarkitechture::MIPS;
@@ -12,7 +13,7 @@ void ADDIInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t result = left + right;
     
     bool overflow = sameSign(left, right) && !sameSign(left, result);
-    if (overflow) { throw "overflow exception"; }
+    if (overflow) { throw BadArithmeticOperation("ADDI encountered an overflow"); }
     
     reg.write(rt, result);
 }

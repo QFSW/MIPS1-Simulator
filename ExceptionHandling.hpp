@@ -13,20 +13,35 @@ namespace Clarkitechture
 		{
 		public:
 			const char * what() const throw();
+            virtual int exitCode() const;
 
 		protected:
 			virtual void createMessage() = 0;
-
+            
 			std::string message;
 		};
+        
+        class BadArithmeticOperation : public MIPSException
+        {
+        public:
+            BadArithmeticOperation(std::string innerException);
+            int exitCode() const override;
+            
+        protected:
+            void createMessage() override;
+            
+        private:
+            std::string innerException;
+        };
 
         class BadRegisterRead : public MIPSException
         {
         public:
             BadRegisterRead(size_t badIndex);
+            int exitCode() const override;
             
 		protected:
-			void createMessage();
+			void createMessage() override;
 
         private:
             size_t badIndex;
@@ -36,9 +51,10 @@ namespace Clarkitechture
         {
         public:
             BadMemoryAccess(size_t badAddress, std::string innerException);
+            int exitCode() const override;
             
         protected:
-            void createMessage();
+            void createMessage() override;
             
         private:
             std::string innerException;
@@ -49,9 +65,10 @@ namespace Clarkitechture
         {
         public:
             BadInstructionDecode(uint32_t badInstr, std::string innerException);
+            int exitCode() const override;
             
         protected:
-            void createMessage();
+            void createMessage() override;
             
         private:
             std::string innerException;
@@ -62,9 +79,10 @@ namespace Clarkitechture
         {
         public:
             BadBinaryIO(std::string innerException);
+            int exitCode() const override;
             
         protected:
-            void createMessage();
+            void createMessage() override;
             
         private:
             std::string innerException;
@@ -76,7 +94,7 @@ namespace Clarkitechture
             BadProgramCounter(uint32_t badPC, std::string innerException);
             
         protected:
-            void createMessage();
+            void createMessage() override;
             
         private:
             std::string innerException;
