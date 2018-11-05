@@ -78,3 +78,8 @@ void Simulator::simulate()
     do { executeNext(); }
     while (!isDone());
 }
+
+byte Simulator::getExitCode() const
+{
+    return (byte)reg.read(2);
+}

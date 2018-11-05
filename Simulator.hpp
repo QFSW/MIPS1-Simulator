@@ -18,6 +18,7 @@ namespace Clarkitechture
         public:
             void loadMachineCode(std::string fileName);
             void simulate();
+            byte getExitCode() const;
             
         private:
             bool isDone();

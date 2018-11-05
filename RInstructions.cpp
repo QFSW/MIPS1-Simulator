@@ -62,6 +62,14 @@ void ORInstr::execute(MemoryMap &mem, RegisterMap& reg)
     reg.write(rd, result);
 }
 
+void NORInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t left = reg.read(rs);
+    uint32_t right = reg.read(rt);
+    uint32_t result = ~(left | right);
+    reg.write(rd, result);
+}
+
 void XORInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t left = reg.read(rs);

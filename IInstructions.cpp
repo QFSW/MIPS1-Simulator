@@ -94,23 +94,15 @@ void LBUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void SWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    addr = reg.read(rs) + constant;
-    data = reg.read(rt);
-}
-
-void SWInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
-{
+    uint32_t addr = reg.read(rs) + constant;
+    uint32_t data = reg.read(rt);
     mem.writeWord(addr, data);
 }
 
 void SBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    addr = reg.read(rs) + constant;
-    data = (byte)reg.read(rt);
-}
-
-void SBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
-{
+    uint32_t addr = reg.read(rs) + constant;
+    byte data = (byte)reg.read(rt);
     mem.writeByte(addr, data);
 }
 

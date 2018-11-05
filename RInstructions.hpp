@@ -50,6 +50,13 @@ namespace Clarkitechture
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
         
+        class NORInstr : public RInstruction
+        {
+        public:
+            using RInstruction::RInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
         class XORInstr : public RInstruction
         {
         public:

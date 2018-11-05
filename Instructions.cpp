@@ -49,6 +49,7 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b100011: return new SUBUInstr(rs, rt, rd, shamt);
     case 0b100100: return new ANDInstr(rs, rt, rd, shamt);
     case 0b100101: return new ORInstr(rs, rt, rd, shamt);
+    case 0b100111: return new NORInstr(rs, rt, rd, shamt);
     case 0b100110: return new XORInstr(rs, rt, rd, shamt);
     case 0b001000: return new JRInstr(rs, rt, rd, shamt);
     case 0b001001: return new JALRInstr(rs, rt, rd, shamt);
@@ -123,7 +124,7 @@ void JumpRInstruction::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
 {
-    branchAddr = reg.PC - 4 + constant * 4;
+    branchAddr = reg.PC + constant * 4;
     conditionMet = evaluateCondition(reg);
 }
 

@@ -21,6 +21,7 @@ int main(int argc, const char * argv[])
         sim.simulate();
         std::cerr << "\n=====================" << std::endl;
         std::cerr << "simulation success\n";
+        std::exit(sim.getExitCode());
     }
     catch (const MIPSException &e)
     {
