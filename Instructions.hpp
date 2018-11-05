@@ -42,6 +42,15 @@ namespace Clarkitechture
 			byte rt;
 			uint16_t constant;
 		};
+        
+        class JInstruction : public Instruction
+        {
+        public:
+            JInstruction(uint32_t target);
+            
+        protected:
+            uint32_t target;
+        };
 
 		class BinaryDecoder
 		{
@@ -51,6 +60,7 @@ namespace Clarkitechture
 		private:
 			static RInstruction* decodeRInstruction(uint32_t bin);
 			static IInstruction* decodeIInstruction(uint32_t bin);
+            static JInstruction* decodeJInstruction(uint32_t bin);
 		};
         
         class JumpRInstruction : public RInstruction

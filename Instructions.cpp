@@ -17,7 +17,20 @@ Instruction* BinaryDecoder::decodeInstruction(uint32_t bin)
 {
 	byte opcode = 0b111111 & (bin >> (32 - 6));
 	if (opcode == 0) { return decodeRInstruction(bin); }
+    else if (opcode == 0b10 || opcode == 0b11) { return decodeJInstruction(bin); }
 	else { return decodeIInstruction(bin); }
+}
+
+JInstruction* BinaryDecoder::decodeJInstruction(uint32_t bin)
+{
+    byte opcode = 0b111111 & (bin >> (32 - 6));
+    uint32_t target = (~ 0b111111) & bin;
+    
+    switch (opcode)
+    {
+    default:
+        throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toBinStr(opcode));
+    }
 }
 
 RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)

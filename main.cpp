@@ -9,22 +9,22 @@
 using namespace Clarkitechture::MIPS;
 int main(int argc, const char * argv[])
 {
-    std::string fileName = "lw3.bin";
+    std::string fileName = "hello.bin";
     Simulator sim;
     
     try
     {
-        std::cout << "loading binary file '" << fileName << "'..." << std::endl;
+        std::cerr << "loading binary file '" << fileName << "'..." << std::endl;
         sim.loadMachineCode(fileName);
-        std::cout << "load success\nsimulating CPU...\n";
-        std::cout << "=====================" << std::endl;
+        std::cerr << "load success\nsimulating CPU...\n";
+        std::cerr << "=====================" << std::endl;
         sim.simulate();
-        std::cout << "\n=====================" << std::endl;
-        std::cout << "simulation success\n";
+        std::cerr << "\n=====================" << std::endl;
+        std::cerr << "simulation success\n";
     }
     catch (const MIPSException &e)
     {
-        std::cout << "\n\nsimulation failed\n" << e.what() << std::endl;
+        std::cerr << "\n\nsimulation failed\n" << e.what() << std::endl;
         std::exit(e.exitCode());
     }
     return 0;
