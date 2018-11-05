@@ -9,8 +9,15 @@
 using namespace Clarkitechture::MIPS;
 int main(int argc, const char * argv[])
 {
-    std::string fileName = "hello.bin";
+    std::string fileName;
     Simulator sim;
+    
+    if (argc <= 1)
+    {
+        std::cerr << "please add the file path to the binary code to simulate as the first argument." << std::endl;
+        std::exit(0);
+    }
+    else { fileName = argv[1]; }
     
     try
     {
