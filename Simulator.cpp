@@ -6,6 +6,21 @@
 #include <memory>
 #include <iostream>
 
+#if !__GCC__
+#if _MSC_VER
+#include "intrin.h"
+inline uint32_t __builtin_bswap32(uint32_t val) { return _byteswap_ulong(val); }
+#else
+inline uint32_t __builtin_bswap32(uint32_t val)
+{
+	return (((val & 0x000000FF) << 24) |
+		((val & 0x0000FF00) << 8) |
+		((val & 0x00FF0000) >> 8) |
+		((val & 0xFF000000) >> 24));
+}
+#endif
+#endif
+
 using namespace Clarkitechture::MIPS;
 
 void Simulator::loadMachineCode(std::string fileName)
