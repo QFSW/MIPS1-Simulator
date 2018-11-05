@@ -93,6 +93,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b101011: return new SWInstr(rs, rt, constant);
     case 0b101000: return new SBInstr(rs, rt, constant);
     case 0b000100: return new BEQInstr(rs, rt, constant);
+    case 0b000101: return new BNEInstr(rs, rt, constant);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));
 	}

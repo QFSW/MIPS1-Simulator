@@ -117,6 +117,13 @@ void SBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 bool BEQInstr::evaluateCondition(const RegisterMap& reg) const
 {
     uint32_t left = reg.read(rs);
-    uint32_t right = reg.read(rt)
+    uint32_t right = reg.read(rt);
     return left == right;
+}
+
+bool BNEInstr::evaluateCondition(const RegisterMap& reg) const
+{
+    uint32_t left = reg.read(rs);
+    uint32_t right = reg.read(rt);
+    return left != right;
 }

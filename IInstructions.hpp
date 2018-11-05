@@ -122,6 +122,15 @@ namespace Clarkitechture
         protected:
             bool evaluateCondition(const RegisterMap& reg) const override;
         };
+        
+        class BNEInstr : public BranchIInstruction
+        {
+        public:
+            using BranchIInstruction::BranchIInstruction;
+            
+        protected:
+            bool evaluateCondition(const RegisterMap& reg) const override;
+        };
     }
 }
 
