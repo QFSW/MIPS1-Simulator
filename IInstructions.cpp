@@ -121,6 +121,12 @@ bool BGEZInstr::evaluateCondition(const RegisterMap& reg) const
 
 bool BGEZALInstr::requiresLink() const { return true; }
 
+bool BGTZInstr::evaluateCondition(const RegisterMap& reg) const
+{
+    int32_t left = reg.read(rs);
+    return left > 0;
+}
+
 bool BNEInstr::evaluateCondition(const RegisterMap& reg) const
 {
     uint32_t left = reg.read(rs);

@@ -129,6 +129,15 @@ namespace Clarkitechture
             bool requiresLink() const override;
         };
         
+        class BGTZInstr : public BranchIInstruction
+        {
+        public:
+            using BranchIInstruction::BranchIInstruction;
+            
+        protected:
+            bool evaluateCondition(const RegisterMap& reg) const override;
+        };
+        
         class BNEInstr : public BranchIInstruction
         {
         public:
