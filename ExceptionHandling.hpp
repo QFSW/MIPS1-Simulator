@@ -92,6 +92,7 @@ namespace Clarkitechture
         {
         public:
             BadProgramCounter(uint32_t badPC, std::string innerException);
+            int exitCode() const override;
             
         protected:
             void createMessage() override;

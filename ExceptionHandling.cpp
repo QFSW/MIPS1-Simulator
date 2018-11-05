@@ -91,3 +91,5 @@ void BadProgramCounter::createMessage()
 {
     message = "Illegal PC " + toHexStr(badPC) + ": " + innerException;
 }
+
+int BadProgramCounter::exitCode() const { return -11; }
