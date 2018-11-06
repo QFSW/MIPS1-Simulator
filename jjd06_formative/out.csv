@@ -1,0 +1,10 @@
+ADDU-wrap, ADDU, Fail, dt10, Expected retcode 254 but got retcode 127
+ADD-wrap, ADD, Fail, dt10, Expected retcode 246 but got retcode 127
+BNE-loop, BNE, Fail, dt10, Expected retcode 10 but got retcode 127
+JR-nothing, JR, Fail, dt10, Expected retcode 0 but got retcode 127
+JR-return-immediate, JR, Fail, dt10, Expected retcode 5 but got retcode 127
+JR-return-immediate-nodelay, JR, Fail, dt10, Expected retcode 10 but got retcode 127
+LW-getc, LW, Fail, dt10, Expected retcode 88 but got retcode 127
+LW-read-data-section, LW, Fail, dt10, Expected retcode 0 but got retcode 127
+SW-putc, SW, Fail, dt10, Expected retcode 0 but got retcode 127
+SW-read-write-data-section, SW, Fail, dt10, Expected retcode 5 but got retcode 127
