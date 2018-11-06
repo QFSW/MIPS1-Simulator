@@ -32,7 +32,7 @@ void SUBInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t right = reg.read(rt);
     int32_t result = left - right;
     
-    bool overflow = sameSign(left, -right) && !sameSign(left, result);
+    bool overflow = !sameSign(left, right) && !sameSign(left, result);
     if (overflow) { throw BadArithmeticOperation("SUB encountered an overflow"); }
     
     reg.write(rd, result);

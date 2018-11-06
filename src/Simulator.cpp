@@ -6,7 +6,7 @@
 #include <memory>
 #include <iostream>
 
-#if !__GCC__
+#if !(__GCC__ || __llvm__)
 #if _MSC_VER
 #include "intrin.h"
 inline uint32_t __builtin_bswap32(uint32_t val) { return _byteswap_ulong(val); }
