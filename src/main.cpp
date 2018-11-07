@@ -5,6 +5,7 @@
 #include "Simulator.hpp"
 #include <stdint.h>
 #include <vector>
+#include <cstdlib>
 
 using namespace Clarkitechture::MIPS;
 int main(int argc, const char * argv[])
