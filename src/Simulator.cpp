@@ -39,7 +39,6 @@ void Simulator::loadMachineCode(std::string fileName)
     
     uint32_t* words = new uint32_t[instrCount];
     binstream.read(reinterpret_cast<char*>(words), size);
-    mem.memcpyInstrMemory(words, size);
     
     try
     {
@@ -48,6 +47,8 @@ void Simulator::loadMachineCode(std::string fileName)
             words[i] = __builtin_bswap32(words[i]);
             instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(words[i]));
         }
+        
+        mem.memcpyInstrMemory(words, size);
         delete[] words;
     }
     catch (const MIPSException&)
