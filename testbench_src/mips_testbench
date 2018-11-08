@@ -28,8 +28,10 @@ run_test()
         expectedReturn=${metaData[1]}
         author=${metaData[2]}
         extraInfo=${metaData[3]}
+        input=${metaData[4]}
+        expectedOutput=${metaData[5]}
         
-        "$simPath" "$binFile"
+        simOutput=$(echo "$input" | "$simPath" "$binFile")
         return=$?
         if [ $return -ge 128 ]; then
             ((return-=256))
@@ -41,16 +43,26 @@ run_test()
             message="$extraInfo; $message"
         fi
 
-        if ((return == expectedReturn)); then
-            status="Pass"
-        else
+        if ((return != expectedReturn)); then
             status="Fail"
             message+=" (expected $expectedReturn)"
             
             failure="test case '$testID' failed: $message"
             failures+=("$failure")
 
-            echo "FAIL: $failure"
+            echo "FAIL: $failure" >&2
+        else
+            if [ ! "$simOutput" = "$expectedOutput" ]; then
+                status="Fail"
+                message+=" (expected '$expectedOutput' as the output, instead received '$simOutput')"
+                
+                failure="test case '$testID' failed: $message"
+                failures+=("$failure")
+
+                echo "FAIL: $failure" >&2
+            else
+                status="Pass"
+            fi
         fi
 
         outTxt="$outTxt$testID, $testInstr, $status, $author, $message\n"
@@ -58,7 +70,7 @@ run_test()
         warning="test case '$testID' did not have a corresponding .meta file and could not be performed"
         warnings+=("$warning")
 
-        echo "WARNING: $warning"
+        echo "WARNING: $warning" >&2
     fi
 }
 
@@ -69,14 +81,16 @@ do
 done
 
 mkdir -p $outDir
+echo >&2
 printf "$outTxt" > $outPath
+printf "$outTxt"
 
 warningCount=${#warnings[@]}
 if [ $warningCount -ge 1 ]; then
     printf "\n\n$warningCount warnings were encountered\n" 
     for warning in "${warnings[@]}"
     do
-        echo " - $warning"
+        echo " - $warning" >&2
     done
 fi
 
@@ -85,7 +99,7 @@ if [ $failureCount -ge 1 ]; then
 printf "\n\n$failureCount failures were encountered\n" 
 for failure in "${failures[@]}"
     do
-        echo " - $failure"
+        echo " - $failure" >&2
     done
 fi
 

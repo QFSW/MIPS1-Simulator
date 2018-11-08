@@ -13,13 +13,17 @@ SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -MMD
+CXXFLAGS = -std=c++11 -Wall -MMD -O3
 
 simulator: $(SIM_OUT)
 
 testbench:
 	mkdir -p $(BIN_DIR)
 	cp -R $(TEST_SRC_DIR)/. $(BIN_DIR)/
+
+run_tests: simulator testbench
+	clear
+	$(TEST_OUT) $(SIM_OUT)
 
 $(SIM_OUT): $(OBJ_FILES)
 	mkdir -p $(BIN_DIR)
