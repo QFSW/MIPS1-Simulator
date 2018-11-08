@@ -36,3 +36,4 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 .PHONY: clean
 clean:
 	rm -r -f $(OBJ_DIR)
+	rm -r -f $(BIN_DIR)

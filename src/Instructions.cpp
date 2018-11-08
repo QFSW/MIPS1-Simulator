@@ -152,7 +152,7 @@ void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
 {
     branchAddr = reg.PC + constant * 4;
     conditionMet = evaluateCondition(reg);
-    if (requiresLink()) { reg.write(reg.PC + 8, 31); }
+    if (conditionMet && requiresLink()) { reg.write(31, reg.PC + 8); }
 }
 
 void BranchIInstruction::delayedExecute(MemoryMap &mem, RegisterMap &reg)

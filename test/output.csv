@@ -8,4 +8,15 @@ addi2, addi, Pass, QFSW, negative immediate; exit code 2
 addi3, addi, Pass, QFSW, overflow; exit code -10
 addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
+bgezal1, bgezal, Pass, QFSW, exit code 5
+bgezal2, bgezal, Pass, QFSW, exit code 4
 hello, sw, Pass, QFSW, testing PUTC; exit code 0
+jal1, jal, Fail, QFSW, exit code -12 (expected 5)
+lb1, lb, Pass, QFSW, exit code 100
+lb2, lb, Pass, QFSW, exit code 100
+lb3, lb, Pass, QFSW, exit code 100
+lb4, lb, Pass, QFSW, testing delay slot; exit code 0
+lb5, lb, Pass, QFSW, exit code 1
+lw1, lw, Pass, QFSW, exit code 100
+lw2, lw, Pass, QFSW, misaligned word; exit code -11
+lw3, lw, Pass, QFSW, uninitialised word; exit code 0

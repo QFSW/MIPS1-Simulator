@@ -32,6 +32,7 @@ void Simulator::loadMachineCode(std::string fileName)
     size_t size = binstream.tellg();
     if (size <= 0) { throw BadBinaryIO("file was empty"); }
     if (size % 4 > 0) { throw BadBinaryIO("file contained a non integral word count"); }
+    if (size > MemoryMap::ADDR_INSTR_LENGTH) { throw BadBinaryIO("file exceeded maximum binary size"); }
     binstream.seekg(0, std::ios::beg);
     
     instrCount = size / 4;

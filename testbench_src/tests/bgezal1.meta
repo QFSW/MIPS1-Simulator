@@ -1,0 +1,16 @@
+#bgezal
+#5
+#QFSW
+#
+#
+
+addi $2, $0, 1
+bgezal $2 func
+addi $2, $2, 1
+addi $2, $2, 1
+addi $2, $2, 1
+jr $0
+
+
+func: addi $2, $2, 1
+jr $31

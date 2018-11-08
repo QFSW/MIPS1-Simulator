@@ -1,7 +1,7 @@
 #ifndef MemoryMap_hpp
 #define MemoryMap_hpp
 
-#include <map>
+#include <unordered_map>
 #include <stdio.h>
 #include <exception>
 #include <string>
@@ -76,12 +76,11 @@ namespace Clarkitechture
             static const size_t ADDR_INSTR = 0x10000000;
             static const size_t ADDR_GETC = 0x30000000;
             static const size_t ADDR_PUTC = 0x30000004;
+            static const size_t ADDR_DATA_LENGTH = 0x4000000;
+            static const size_t ADDR_INSTR_LENGTH = 0x1000000;
             
 		private:
-			static const size_t ADDR_DATA_LENGTH = 0x4000000;
-            static const size_t ADDR_INSTR_LENGTH = 0x1000000;
-
-            std::map<uint32_t, byte> memory;
+            std::unordered_map<uint32_t, byte> memory;
             byte* instrMemory;
             size_t instrMemorySize = 0;
 		};
