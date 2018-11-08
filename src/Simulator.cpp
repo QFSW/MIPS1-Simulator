@@ -38,23 +38,13 @@ void Simulator::loadMachineCode(std::string fileName)
     instrs.resize(instrCount);
     
     uint32_t* words = new uint32_t[instrCount];
+    mem.initInstrMemory(reinterpret_cast<byte*>(words), size);
     binstream.read(reinterpret_cast<char*>(words), size);
     
-    try
+    for (size_t i = 0; i < instrCount; ++i)
     {
-        for (size_t i = 0; i < instrCount; ++i)
-        {
-            words[i] = __builtin_bswap32(words[i]);
-            instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(words[i]));
-        }
-        
-        mem.memcpyInstrMemory(words, size);
-        delete[] words;
-    }
-    catch (const MIPSException&)
-    {
-        delete[] words;
-        throw;
+        words[i] = __builtin_bswap32(words[i]);
+        instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(words[i]));
     }
 }
 
