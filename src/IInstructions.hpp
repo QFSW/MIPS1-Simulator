@@ -133,6 +133,13 @@ namespace Clarkitechture
             void execute(MemoryMap &mem, RegisterMap &reg) override;
         };
         
+        class SHInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+        };
+        
         class BEQInstr : public BranchIInstruction
         {
         public:

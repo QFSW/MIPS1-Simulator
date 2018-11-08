@@ -54,7 +54,7 @@ run_test()
         else
             if [ ! "$simOutput" = "$expectedOutput" ]; then
                 status="Fail"
-                message+=" (expected '$expectedOutput' as the output, instead received '$simOutput')"
+                message+=" (expected '$expectedOutput' as the output; instead received '$simOutput')"
                 
                 failure="test case '$testID' failed: $message"
                 failures+=("$failure")

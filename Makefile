@@ -23,7 +23,7 @@ testbench:
 
 run_tests: simulator testbench
 	clear
-	$(TEST_OUT) $(SIM_OUT)
+	$(TEST_OUT) $(SIM_OUT) | column -t -s, | grep -E --color=auto 'Fail|$$'
 
 $(SIM_OUT): $(OBJ_FILES)
 	mkdir -p $(BIN_DIR)

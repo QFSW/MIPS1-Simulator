@@ -68,6 +68,7 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b000011: return new SRAInstr(rs, rt, rd, shamt);
     case 0b000111: return new SRAVInstr(rs, rt, rd, shamt);
     case 0b000010: return new SRLInstr(rs, rt, rd, shamt);
+    case 0b000110: return new SRLVInstr(rs, rt, rd, shamt);
     default:
         throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toBinStr(funct));
 	}
@@ -97,6 +98,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b100101: return new LHUInstr(rs, rt, constant);
     case 0b101011: return new SWInstr(rs, rt, constant);
     case 0b101000: return new SBInstr(rs, rt, constant);
+    case 0b101001: return new SHInstr(rs, rt, constant);
     case 0b000100: return new BEQInstr(rs, rt, constant);
     case 0b000111: return new BGTZInstr(rs, rt, constant);
     case 0b000110: return new BLEZInstr(rs, rt, constant);

@@ -55,14 +55,14 @@ void SLTIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void SLTIUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t value = constant << 16;
-    reg.write(rt, value);
+    uint32_t left = reg.read(rs);
+    reg.write(rt, left < constant ? 1 : 0);
 }
 
 void LUIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t left = reg.read(rs);
-    reg.write(rt, left < constant ? 1 : 0);
+    uint32_t value = constant << 16;
+    reg.write(rt, value);
 }
 
 void LWInstr::execute(MemoryMap &mem, RegisterMap& reg)
@@ -132,6 +132,13 @@ void SBInstr::execute(MemoryMap &mem, RegisterMap& reg)
     uint32_t addr = reg.read(rs) + constant;
     byte data = (byte)reg.read(rt);
     mem.write<byte>(addr, data);
+}
+
+void SHInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs) + constant;
+    uint16_t data = (uint16_t)reg.read(rt);
+    mem.write<uint16_t>(addr, data);
 }
 
 bool BEQInstr::evaluateCondition(const RegisterMap& reg) const
