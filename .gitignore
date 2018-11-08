@@ -1,3 +1,4 @@
-bin
-obj
+bin/*
+obj/*
 *.o
+bin/mips_simulator

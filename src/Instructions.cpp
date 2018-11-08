@@ -62,7 +62,7 @@ RInstruction* BinaryDecoder::decodeRInstruction(uint32_t bin)
     case 0b010001: return new MTHIInstr(rs, rt, rd, shamt);
     case 0b010011: return new MTLOInstr(rs, rt, rd, shamt);
     case 0b101010: return new SLTInstr(rs, rt, rd, shamt);
-    case 0b101001: return new SLTUInstr(rs, rt, rd, shamt);
+    case 0b101011: return new SLTUInstr(rs, rt, rd, shamt);
     case 0b000000: return new SLLInstr(rs, rt, rd, shamt);
     case 0b000100: return new SLLVInstr(rs, rt, rd, shamt);
     case 0b000011: return new SRAInstr(rs, rt, rd, shamt);
