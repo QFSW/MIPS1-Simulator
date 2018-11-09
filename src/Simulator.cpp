@@ -6,7 +6,7 @@
 #include <memory>
 #include <iostream>
 
-#if !(__GCC__ || __llvm__)
+#if !(__GCC__ || __llvm__ || __GNUC__)
 #if _MSC_VER
 #include "intrin.h"
 inline uint32_t __builtin_bswap32(uint32_t val) { return _byteswap_ulong(val); }
@@ -74,7 +74,8 @@ void Simulator::executeNext()
 size_t Simulator::currInstrIndex()
 {
     if (reg.PC % 4 > 0) { throw BadProgramCounter(reg.PC, "word misaligned PC"); }
-    return reg.PC / 4 - 1;
+	if (reg.PC < MemoryMap::ADDR_INSTR + 4 || reg.PC > MemoryMap::ADDR_INSTR + MemoryMap::ADDR_INSTR_LENGTH) { throw BadProgramCounter(reg.PC, "PC was outisde of valid instruction memory"); }
+    return (reg.PC - MemoryMap::ADDR_INSTR) / 4 - 1;
 }
 
 bool Simulator::isDone() const
@@ -84,8 +85,8 @@ bool Simulator::isDone() const
 
 void Simulator::simulate()
 {
-    do { executeNext(); }
-    while (!isDone());
+	reg.PC = MemoryMap::ADDR_INSTR;
+	while (!isDone()) { executeNext(); }
 }
 
 byte Simulator::getExitCode() const

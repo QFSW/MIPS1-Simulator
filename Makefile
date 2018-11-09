@@ -13,7 +13,7 @@ SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -MMD -O3
+CXXFLAGS = -std=c++11 -Wall -MMD -O3 -mavx
 
 simulator: $(SIM_OUT)
 
