@@ -12,6 +12,8 @@ beq1, beq, Pass, QFSW, exit code 2
 beq2, beq, Pass, QFSW, exit code 4
 bgezal1, bgezal, Pass, QFSW, exit code 17
 bgezal2, bgezal, Pass, QFSW, exit code 4
+bne1, bne, Pass, QFSW, exit code 4
+bne2, bne, Pass, QFSW, exit code 2
 hello, sw, Pass, QFSW, testing PUTC; exit code 0
 j1, j, Pass, QFSW, exit code 3
 jal1, jal, Pass, QFSW, exit code 5
@@ -23,3 +25,4 @@ lb5, lb, Pass, QFSW, exit code 1
 lw1, lw, Pass, QFSW, exit code 100
 lw2, lw, Pass, QFSW, misaligned word; exit code -11
 lw3, lw, Pass, QFSW, uninitialised word; exit code 0
+sub1, sub, Pass, QFSW, exit code 51

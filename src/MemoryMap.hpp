@@ -26,7 +26,7 @@ namespace Clarkitechture
             {
                 if (aligned && address % sizeof(T) > 0) { throw BadMemoryAccess(address, "read data address was misaligned"); }
                 else if (address == ADDR_GETC + 4 - sizeof(T)) { return std::getchar(); }
-                else if (address >= ADDR_GETC && address < ADDR_GETC + 4 - sizeof(T)) { return 0; }
+                else if (address >= ADDR_GETC && address < ADDR_GETC + 4 - sizeof(T)) { std::getchar(); return 0; }
                 else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))
                 {
                     T data = 0;
