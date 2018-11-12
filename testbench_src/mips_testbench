@@ -87,7 +87,7 @@ printf "$outTxt"
 
 warningCount=${#warnings[@]}
 if [ $warningCount -ge 1 ]; then
-    printf "\n\n$warningCount warnings were encountered\n" 
+    printf "\n\n$warningCount warnings were encountered\n" >&2
     for warning in "${warnings[@]}"
     do
         echo " - $warning" >&2
@@ -96,7 +96,7 @@ fi
 
 failureCount=${#failures[@]}
 if [ $failureCount -ge 1 ]; then
-printf "\n\n$failureCount failures were encountered\n" 
+printf "\n\n$failureCount failures were encountered\n" >&2
 for failure in "${failures[@]}"
     do
         echo " - $failure" >&2

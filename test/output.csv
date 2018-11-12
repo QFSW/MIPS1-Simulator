@@ -8,7 +8,9 @@ addi2, addi, Pass, QFSW, negative immediate; exit code 2
 addi3, addi, Pass, QFSW, overflow; exit code -10
 addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
-bgezal1, bgezal, Pass, QFSW, exit code 5
+beq1, beq, Pass, QFSW, exit code 2
+beq2, beq, Pass, QFSW, exit code 4
+bgezal1, bgezal, Fail, QFSW, exit code 4 (expected 5)
 bgezal2, bgezal, Pass, QFSW, exit code 4
 hello, sw, Pass, QFSW, testing PUTC; exit code 0
 jal1, jal, Fail, QFSW, exit code -12 (expected 5)
