@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include "MemoryMap.hpp"
 
 namespace Clarkitechture
 {
