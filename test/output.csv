@@ -8,6 +8,8 @@ addi2, addi, Pass, QFSW, negative immediate; exit code 2
 addi3, addi, Pass, QFSW, overflow; exit code -10
 addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
+and1, and, Pass, QFSW, exit code 0
+and2, and, Pass, QFSW, exit code 1
 beq1, beq, Pass, QFSW, exit code 2
 beq2, beq, Pass, QFSW, exit code 4
 bgezal1, bgezal, Pass, QFSW, exit code 17
@@ -25,4 +27,8 @@ lb5, lb, Pass, QFSW, exit code 1
 lw1, lw, Pass, QFSW, exit code 100
 lw2, lw, Pass, QFSW, misaligned word; exit code -11
 lw3, lw, Pass, QFSW, uninitialised word; exit code 0
+or1, or, Pass, QFSW, exit code 1
+or2, or, Pass, QFSW, exit code 3
 sub1, sub, Pass, QFSW, exit code 51
+xor1, xor, Pass, QFSW, exit code 1
+xor2, xor, Pass, QFSW, exit code 2
