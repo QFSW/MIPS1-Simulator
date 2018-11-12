@@ -30,5 +30,8 @@ lw3, lw, Pass, QFSW, uninitialised word; exit code 0
 or1, or, Pass, QFSW, exit code 1
 or2, or, Pass, QFSW, exit code 3
 sub1, sub, Pass, QFSW, exit code 51
+sub2, sub, Pass, ChrisDeverall, overflow; exit code -10
+sub3, sub, Pass, QFSW, exit code 0
+sub4, sub, Pass, ChrisDeverall, underflow; exit code -10
 xor1, xor, Pass, QFSW, exit code 1
 xor2, xor, Pass, QFSW, exit code 2
