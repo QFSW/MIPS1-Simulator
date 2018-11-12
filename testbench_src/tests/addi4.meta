@@ -1,0 +1,13 @@
+#addi
+#-10
+#ChrisDeverall
+#underflow
+#
+#
+
+addi $3, $0, 1
+sll $3, $3, 31
+addi $2, $3, -2
+
+jr $0
+nop
