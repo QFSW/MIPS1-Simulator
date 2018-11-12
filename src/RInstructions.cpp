@@ -209,5 +209,5 @@ void JRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void JALRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     jumpAddr = reg.read(rs);
-    reg.write(rd, reg.PC + 8);
+    reg.write(rd, reg.PC + 4);
 }

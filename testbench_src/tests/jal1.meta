@@ -10,6 +10,7 @@ addi $2, $2, 1
 addi $2, $2, 1
 addi $2, $2, 1
 jr $0
+nop
 
 
 func: addi $2, $2, 1

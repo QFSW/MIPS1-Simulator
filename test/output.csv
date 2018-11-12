@@ -10,10 +10,11 @@ addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
 beq1, beq, Pass, QFSW, exit code 2
 beq2, beq, Pass, QFSW, exit code 4
-bgezal1, bgezal, Fail, QFSW, exit code 4 (expected 5)
+bgezal1, bgezal, Pass, QFSW, exit code 17
 bgezal2, bgezal, Pass, QFSW, exit code 4
 hello, sw, Pass, QFSW, testing PUTC; exit code 0
-jal1, jal, Fail, QFSW, exit code -12 (expected 5)
+j1, j, Pass, QFSW, exit code 3
+jal1, jal, Pass, QFSW, exit code 5
 lb1, lb, Pass, QFSW, exit code 100
 lb2, lb, Pass, QFSW, exit code 100
 lb3, lb, Pass, QFSW, exit code 100

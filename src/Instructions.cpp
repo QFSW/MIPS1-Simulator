@@ -5,6 +5,7 @@
 #include "Instructions.hpp"
 #include "RInstructions.hpp"
 #include "IInstructions.hpp"
+#include "JInstructions.hpp"
 #include "MemoryMap.hpp"
 #include "RegisterMap.hpp"
 #include "ExceptionHandling.hpp"
@@ -24,11 +25,13 @@ Instruction* BinaryDecoder::decodeInstruction(uint32_t bin)
 JInstruction* BinaryDecoder::decodeJInstruction(uint32_t bin)
 {
     byte opcode = 0b111111 & (bin >> (32 - 6));
-    uint32_t target = (~ 0b111111) & bin;
+    uint32_t target = 0x03FFFFFF & bin;
     
     switch (opcode)
     {
     default:
+        case 0b000010: return new JInstr(target);
+        case 0b000011: return new JALInstr(target);
         throw BadInstructionDecode(bin, "invalid or unsupported function code - " + toBinStr(opcode));
     }
 }
@@ -143,6 +146,11 @@ IInstruction::IInstruction(byte rs, byte rt, uint16_t constant)
 	this->constant = constant;
 }
 
+JInstruction::JInstruction(uint32_t target)
+{
+	this->target = target;
+}
+
 void JumpRInstruction::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 {
     reg.PC = jumpAddr;
@@ -152,7 +160,7 @@ void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
 {
     branchAddr = reg.PC + constant * 4;
     conditionMet = evaluateCondition(reg);
-    if (conditionMet && requiresLink()) { reg.write(31, reg.PC + 8); }
+    if (conditionMet && requiresLink()) { reg.write(31, reg.PC + 4); }
 }
 
 void BranchIInstruction::delayedExecute(MemoryMap &mem, RegisterMap &reg)

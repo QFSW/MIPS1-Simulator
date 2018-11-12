@@ -2,3 +2,4 @@ bin/*
 obj/*
 *.o
 bin/mips_simulator
+bin/mips_simulator
