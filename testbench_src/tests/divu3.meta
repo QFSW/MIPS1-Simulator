@@ -1,0 +1,14 @@
+#divu
+#-10
+#ChrisDeverall
+#div_zero
+#
+#
+
+addi $3, $0, 14
+addi $4, $0, 0
+div $3, $4
+mflo $2
+
+jr $0
+nop

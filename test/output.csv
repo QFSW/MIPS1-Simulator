@@ -9,6 +9,7 @@ addi3, addi, Pass, QFSW, overflow; exit code -10
 addi4, addi, Pass, ChrisDeverall, underflow; exit code -10
 addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
+addiu3, addiu, Pass, ChrisDeverall, underflow; exit code -100
 and1, and, Pass, QFSW, exit code 0
 and2, and, Pass, QFSW, exit code 1
 beq1, beq, Pass, QFSW, exit code 2
@@ -17,6 +18,15 @@ bgezal1, bgezal, Pass, QFSW, exit code 17
 bgezal2, bgezal, Pass, QFSW, exit code 4
 bne1, bne, Pass, QFSW, exit code 4
 bne2, bne, Pass, QFSW, exit code 2
+div1, div, Pass, ChrisDeverall, standard_quot; exit code 12
+div2, div, Pass, ChrisDeverall, standard_remain; exit code 0
+div3, div, Pass, ChrisDeverall, standard_negative; exit code -4
+div4, div, Pass, ChrisDeverall, div_zero; exit code -10
+div5, div, Fail, ChrisDeverall, overflow; exit code 0 (expected -10)
+divu1, divu, Pass, ChrisDeverall, standard; exit code 2
+divu2, divu, Pass, ChrisDeverall, negative; exit code -1
+divu3, divu, Pass, ChrisDeverall, div_zero; exit code -10
+divu4, divu, Fail, ChrisDeverall, overflow; exit code -120 (expected -10)
 hello, sw, Pass, QFSW, testing PUTC; exit code 0
 j1, j, Pass, QFSW, exit code 3
 jal1, jal, Pass, QFSW, exit code 5
@@ -28,6 +38,15 @@ lb5, lb, Pass, QFSW, exit code 1
 lw1, lw, Pass, QFSW, exit code 100
 lw2, lw, Pass, QFSW, misaligned word; exit code -11
 lw3, lw, Pass, QFSW, uninitialised word; exit code 0
+mthi1, mthi, Pass, ChrisDeverall, pos; exit code 14
+mthi2, mthi, Pass, ChrisDeverall, neg; exit code -20
+mtlo1, mtlo, Pass, ChrisDeverall, pos; exit code 5
+mtlo2, mtlo, Pass, ChrisDeverall, neg; exit code -5
+mult1, mult, Pass, ChrisDeverall, standard; exit code 12
+mult2, mult, Pass, ChrisDeverall, negative; exit code 35
+mult3, mult, Pass, ChrisDeverall, overflow; exit code -1
+multu1, multu, Pass, ChrisDeverall, standard; exit code 12
+multu2, multu, Pass, ChrisDeverall, standard_large; exit code 127
 or1, or, Pass, QFSW, exit code 1
 or2, or, Pass, QFSW, exit code 3
 sub1, sub, Pass, QFSW, exit code 51
@@ -36,3 +55,4 @@ sub3, sub, Pass, QFSW, exit code 0
 sub4, sub, Pass, ChrisDeverall, underflow; exit code -10
 xor1, xor, Pass, QFSW, exit code 1
 xor2, xor, Pass, QFSW, exit code 2
+xor3, xor, Pass, ChrisDeverall, exit code 0

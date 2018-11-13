@@ -1,13 +1,15 @@
-#addi
-#-10
+#mult
+#-1
 #ChrisDeverall
-#underflow
+#overflow
 #
 #
 
 addi $3, $0, 1
 sll $3, $3, 31
-addi $2, $3, -1
+addi $4, $0, -1
+mult $4, $3
+mfhi $2
 
 jr $0
 nop

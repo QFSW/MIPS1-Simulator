@@ -1,5 +1,5 @@
-#addi
-#-10
+#addiu
+#-100
 #ChrisDeverall
 #underflow
 #
@@ -7,7 +7,7 @@
 
 addi $3, $0, 1
 sll $3, $3, 31
-addi $2, $3, -1
+addiu $2, $3, -100
 
 jr $0
 nop
