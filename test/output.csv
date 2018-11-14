@@ -10,6 +10,9 @@ addi4, addi, Pass, ChrisDeverall, underflow; exit code -10
 addiu1, addiu, Pass, QFSW, exit code 2
 addiu2, addiu, Pass, QFSW, overflow; exit code 0
 addiu3, addiu, Pass, ChrisDeverall, underflow; exit code -100
+addu1, addu, Pass, ChrisDeverall, standard; exit code 10
+addu2, addu, Pass, ChrisDeverall, overflow; exit code 2
+addu3, addu, Pass, ChrisDeverall, underflow; exit code 1
 and1, and, Pass, QFSW, exit code 0
 and2, and, Pass, QFSW, exit code 1
 andi1, andi, Pass, ChrisDeverall, exit code 18
