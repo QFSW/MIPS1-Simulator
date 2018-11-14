@@ -58,6 +58,17 @@ sll2, sll, Pass, ChrisDeverall, standardneg; exit code -8
 sllv1, sllv, Pass, ChrisDeverall, standardpos; exit code 56
 sllv2, sllv, Pass, ChrisDeverall, standardneg; exit code -12
 sllv3, sllv, Fail, ChrisDeverall, largevar; exit code 6 (expected 0)
+slt1, slt, Pass, ChrisDeverall, standard; exit code 1
+slt2, slt, Pass, ChrisDeverall, standardneg; exit code 0
+slt3, slt, Pass, ChrisDeverall, diffsigns; exit code 0
+slt4, slt, Pass, ChrisDeverall, equal; exit code 0
+slti1, slti, Pass, ChrisDeverall, standard; exit code 1
+slti2, slti, Pass, ChrisDeverall, standardneg; exit code 0
+sltiu1, sltiu, Pass, ChrisDeverall, standard; exit code 1
+sltiu2, sltiu, Pass, ChrisDeverall, standardneg; exit code 1
+sltiu3, sltiu, Pass, ChrisDeverall, standardneg; exit code 0
+sltu1, sltu, Pass, ChrisDeverall, standard; exit code 1
+sltu2, sltu, Pass, ChrisDeverall, standardneg; exit code 0
 sra1, sra, Pass, ChrisDeverall, standardpos; exit code 4
 sra2, sra, Pass, ChrisDeverall, standardneg; exit code -2
 sra3, sra, Pass, ChrisDeverall, attemptToChangeSign; exit code -1
