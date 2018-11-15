@@ -58,6 +58,7 @@ ori1, ori, Pass, ChrisDeverall, exit code -1
 ori2, ori, Pass, ChrisDeverall, exit code 0
 sll1, sll, Pass, ChrisDeverall, standardpos; exit code 60
 sll2, sll, Pass, ChrisDeverall, standardneg; exit code -8
+sll3, sll, Fail, ChrisDeverall, largeshift; exit code 26 (expected 0)
 sllv1, sllv, Pass, ChrisDeverall, standardpos; exit code 56
 sllv2, sllv, Pass, ChrisDeverall, standardneg; exit code -12
 sllv3, sllv, Fail, ChrisDeverall, largevar; exit code 6 (expected 0)

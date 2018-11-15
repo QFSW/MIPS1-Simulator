@@ -158,7 +158,8 @@ void JumpRInstruction::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void BranchIInstruction::execute(MemoryMap &mem, RegisterMap &reg)
 {
-    branchAddr = reg.PC + constant * 4;
+    int32_t offset = ((int16_t)constant) << 2;
+    branchAddr = reg.PC + offset;
     conditionMet = evaluateCondition(reg);
     if (conditionMet && requiresLink()) { reg.write(31, reg.PC + 4); }
 }
