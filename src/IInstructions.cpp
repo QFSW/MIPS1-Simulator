@@ -67,7 +67,7 @@ void LUIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void LWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     data = mem.read<uint32_t>(addr);
 }
 
@@ -78,7 +78,7 @@ void LWInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void LBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     data = mem.read<byte>(addr);
 }
 
@@ -89,7 +89,7 @@ void LBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void LBUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     data = mem.read<byte>(addr);
 }
 
@@ -100,7 +100,7 @@ void LBUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void LHInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     data = mem.read<uint16_t>(addr);
 }
 
@@ -111,7 +111,7 @@ void LHInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void LHUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     data = mem.read<uint16_t>(addr);
 }
 
@@ -122,21 +122,21 @@ void LHUInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 
 void SWInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     uint32_t data = reg.read(rt);
     mem.write<uint32_t>(addr, data);
 }
 
 void SBInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     byte data = (byte)reg.read(rt);
     mem.write<byte>(addr, data);
 }
 
 void SHInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t addr = reg.read(rs) + constant;
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
     uint16_t data = (uint16_t)reg.read(rt);
     mem.write<uint16_t>(addr, data);
 }
