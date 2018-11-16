@@ -168,9 +168,8 @@ void SLLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SLLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    if (newShamt >= 32) { value = 0; }
-    else { value <<= newShamt;}
+    uint32_t newShamt = 0b11111 & reg.read(rs);
+    value <<= newShamt;
     reg.write(rd, value);
 }
 
@@ -184,9 +183,8 @@ void SRLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SRLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    if (newShamt >= 32) { value = 0; }
-    else { value >>= newShamt;}
+    uint32_t newShamt = 0b11111 & reg.read(rs);
+    value >>= newShamt;
     reg.write(rd, value);
 }
 
@@ -200,9 +198,8 @@ void SRAInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SRAVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
-    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    if (newShamt >= 32) { value = 0; }
-    else { value >>= newShamt;}
+    uint32_t newShamt = 0b11111 & reg.read(rs);
+    value >>= newShamt;
     reg.write(rd, value);
 }
 
