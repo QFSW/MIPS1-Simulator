@@ -1,0 +1,9 @@
+#!/bin/bash 
+
+srcPath="tests"
+parserPath="./parser/bin/parser"
+metaFiles="./$srcPath/*.meta"
+for meta in $metaFiles
+do
+    $parserPath "$meta" "$srcPath/#"
+done

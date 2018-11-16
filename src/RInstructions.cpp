@@ -101,12 +101,13 @@ void DIVInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t left = reg.read(rs);
     int32_t right = reg.read(rt);
     
-    if (right == 0) { throw BadArithmeticOperation("DIV encountered a division by 0"); }
-    
-    int32_t quotient = left / right;
-    int32_t remainder = left % right;
-    reg.lo = quotient;
-    reg.hi = remainder;
+    if (right != 0)
+    {
+        int32_t quotient = left / right;
+        int32_t remainder = left % right;
+        reg.lo = quotient;
+        reg.hi = remainder;
+    }
 }
 
 void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
@@ -114,12 +115,13 @@ void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
     uint32_t left = reg.read(rs);
     uint32_t right = reg.read(rt);
     
-    if (right == 0) { throw BadArithmeticOperation("DIVU encountered a division by 0"); }
-    
-    uint32_t quotient = left / right;
-    uint32_t remainder = left % right;
-    reg.lo = quotient;
-    reg.hi = remainder;
+    if (right != 0)
+    {
+        uint32_t quotient = left / right;
+        uint32_t remainder = left % right;
+        reg.lo = quotient;
+        reg.hi = remainder;
+    }
 }
 
 void MFHIInstr::execute(MemoryMap &mem, RegisterMap& reg)

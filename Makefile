@@ -2,13 +2,17 @@ SRC_DIR = ./src
 TEST_SRC_DIR = ./testbench_src
 OBJ_DIR = ./obj
 BIN_DIR = ./bin
+PARSE_DIR = ./parser
+TST_DIR = ./tests
 
 SIM_NAME = mips_simulator
 SIM_OUT = $(BIN_DIR)/$(SIM_NAME)
 
 TEST_NAME = mips_testbench
+BINGEN_NAME = mips_bingen
 TEST_OUT = $(BIN_DIR)/$(TEST_NAME)
 
+TST_FILES = $(TEST_SRC_DIR)/tests/*.meta
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
@@ -17,9 +21,15 @@ CXXFLAGS = -std=c++11 -Wall -MMD -O3 -mavx
 
 simulator: $(SIM_OUT)
 
-testbench:
+parser:
+	make -C $(PARSE_DIR)
+
+testbench: parser
 	mkdir -p $(BIN_DIR)
-	cp -R $(TEST_SRC_DIR)/. $(BIN_DIR)/
+	mkdir -p $(TST_DIR)
+	cp $(TEST_SRC_DIR)/$(TEST_NAME) $(BIN_DIR)/$(TEST_NAME)
+	cp -r $(TST_FILES) $(TST_DIR)
+	$(TEST_SRC_DIR)/$(BINGEN_NAME) $(TST_DIR)
 
 run_tests: simulator testbench
 	clear
@@ -33,7 +43,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	mkdir -p $(OBJ_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
-.PHONY: clean
+.PHONY: clean parser testbench
 clean:
-	rm -r -f $(OBJ_DIR)
-	rm -r -f $(BIN_DIR)
+	rm -rf $(OBJ_DIR)
+	rm -rf $(BIN_DIR)
+	rm -rf $(TST_DIR)
+	make -C $(PARSE_DIR) clean
