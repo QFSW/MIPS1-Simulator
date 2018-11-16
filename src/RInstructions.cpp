@@ -2,7 +2,6 @@
 #include "Instructions.hpp"
 #include "ExceptionHandling.hpp"
 #include "Utils.hpp"
-#include <algorithm>
 
 using namespace Clarkitechture::MIPS;
 using namespace Clarkitechture::Utils;
@@ -170,7 +169,8 @@ void SLLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
     uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    value <<= newShamt;
+    if (newShamt >= 32) { value = 0; }
+    else { value <<= newShamt;}
     reg.write(rd, value);
 }
 
@@ -185,7 +185,8 @@ void SRLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
     uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    value >>= newShamt;
+    if (newShamt >= 32) { value = 0; }
+    else { value >>= newShamt;}
     reg.write(rd, value);
 }
 
@@ -200,7 +201,8 @@ void SRAVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
     uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
-    value >>= newShamt;
+    if (newShamt >= 32) { value = 0; }
+    else { value >>= newShamt;}
     reg.write(rd, value);
 }
 
