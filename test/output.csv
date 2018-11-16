@@ -89,6 +89,7 @@ sub1, sub, Pass, QFSW, exit code 51
 sub2, sub, Pass, ChrisDeverall, overflow; exit code -10
 sub3, sub, Pass, QFSW, exit code 0
 sub4, sub, Pass, ChrisDeverall, underflow; exit code -10
+subu1, subu, Pass, ChrisDeverall, standard; exit code 16
 xor1, xor, Pass, QFSW, exit code 1
 xor2, xor, Pass, QFSW, exit code 2
 xor3, xor, Pass, ChrisDeverall, exit code 0
