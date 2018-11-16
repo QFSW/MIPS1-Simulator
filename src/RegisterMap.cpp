@@ -6,10 +6,7 @@ using namespace Clarkitechture::MIPS;
 
 RegisterMap::RegisterMap()
 {
-    for (int i = 0; i < REGISTER_COUNT; ++i)
-    {
-        registers[i] = 0;
-    }
+    memset(registers, 0, REGISTER_COUNT * sizeof(*registers));
 }
 
 const uint32_t RegisterMap::read(size_t regIndex) const
