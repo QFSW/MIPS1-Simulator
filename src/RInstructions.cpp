@@ -2,6 +2,7 @@
 #include "Instructions.hpp"
 #include "ExceptionHandling.hpp"
 #include "Utils.hpp"
+#include <algorithm>
 
 using namespace Clarkitechture::MIPS;
 using namespace Clarkitechture::Utils;
@@ -168,38 +169,38 @@ void SLLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SLLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value << newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value <<= newShamt;
     reg.write(rd, value);
 }
 
 void SRLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    value = value >> shamt;
+    value >>= shamt;
     reg.write(rd, value);
 }
 
 void SRLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value >> newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value >>= newShamt;
     reg.write(rd, value);
 }
 
 void SRAInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
-    value = value >> shamt;
+    value >>= shamt;
     reg.write(rd, value);
 }
 
 void SRAVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value >> newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value >>= newShamt;
     reg.write(rd, value);
 }
 
