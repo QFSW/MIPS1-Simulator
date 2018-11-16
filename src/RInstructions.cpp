@@ -2,6 +2,7 @@
 #include "Instructions.hpp"
 #include "ExceptionHandling.hpp"
 #include "Utils.hpp"
+#include <algorithm>
 
 using namespace Clarkitechture::MIPS;
 using namespace Clarkitechture::Utils;
@@ -101,12 +102,13 @@ void DIVInstr::execute(MemoryMap &mem, RegisterMap& reg)
     int32_t left = reg.read(rs);
     int32_t right = reg.read(rt);
     
-    if (right == 0) { throw BadArithmeticOperation("DIV encountered a division by 0"); }
-    
-    int32_t quotient = left / right;
-    int32_t remainder = left % right;
-    reg.lo = quotient;
-    reg.hi = remainder;
+    if (right != 0)
+    {
+        int32_t quotient = left / right;
+        int32_t remainder = left % right;
+        reg.lo = quotient;
+        reg.hi = remainder;
+    }
 }
 
 void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
@@ -114,12 +116,13 @@ void DIVUInstr::execute(MemoryMap &mem, RegisterMap& reg)
     uint32_t left = reg.read(rs);
     uint32_t right = reg.read(rt);
     
-    if (right == 0) { throw BadArithmeticOperation("DIVU encountered a division by 0"); }
-    
-    uint32_t quotient = left / right;
-    uint32_t remainder = left % right;
-    reg.lo = quotient;
-    reg.hi = remainder;
+    if (right != 0)
+    {
+        uint32_t quotient = left / right;
+        uint32_t remainder = left % right;
+        reg.lo = quotient;
+        reg.hi = remainder;
+    }
 }
 
 void MFHIInstr::execute(MemoryMap &mem, RegisterMap& reg)
@@ -166,38 +169,38 @@ void SLLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 void SLLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value << newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value <<= newShamt;
     reg.write(rd, value);
 }
 
 void SRLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    value = value >> shamt;
+    value >>= shamt;
     reg.write(rd, value);
 }
 
 void SRLVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value >> newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value >>= newShamt;
     reg.write(rd, value);
 }
 
 void SRAInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
-    value = value >> shamt;
+    value >>= shamt;
     reg.write(rd, value);
 }
 
 void SRAVInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     int32_t value = reg.read(rt);
-    uint32_t newShamt = reg.read(rs);
-    value = value >> newShamt;
+    uint32_t newShamt = std::min<uint32_t>(31, reg.read(rs));
+    value >>= newShamt;
     reg.write(rd, value);
 }
 

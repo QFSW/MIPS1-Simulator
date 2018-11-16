@@ -1,0 +1,12 @@
+src/instructionList.o
+bin/parser
+src/main.o
+src/parser.o
+.DS_store
+bin/.DS_store
+mips.bin
+.vscode/settings.json
+testFile.txt
+mips2.bin
+input.txt
+output.txt

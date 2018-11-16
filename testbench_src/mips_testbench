@@ -1,10 +1,8 @@
 #!/bin/bash 
 
 clear
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-srcPath="$dir/tests"
-outDir="test"
-outPath="$outDir/output.csv"
+srcPath="tests"
+outPath="$srcPath/output.csv"
 outTxt=""
 simPath=$1
 warnings=()
@@ -74,7 +72,7 @@ run_test()
     fi
 }
 
-binFiles="/$srcPath/*.bin";
+binFiles="./$srcPath/*.bin"
 for bin in $binFiles
 do
     run_test "$1" "$bin"

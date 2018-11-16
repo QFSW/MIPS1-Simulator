@@ -1,5 +1,7 @@
 bin/*
 obj/*
 test/*
+tests/*
+*.bin
 *.o
 *.DS_Store
