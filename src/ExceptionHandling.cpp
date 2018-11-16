@@ -80,6 +80,20 @@ void BadBinaryIO::createMessage()
 
 int BadBinaryIO::exitCode() const { return -21; }
 
+BadIO::BadIO(std::string streamName, int error)
+{
+    this->streamName = streamName;
+    this->error = error;
+    createMessage();
+}
+
+void BadIO::createMessage()
+{
+    message = "Bad IO error: " + streamName + " threw the error " + std::to_string(error);
+}
+
+int BadIO::exitCode() const { return -21; }
+
 BadProgramCounter::BadProgramCounter(uint32_t badPC, std::string innerException)
 {
     this->badPC = badPC;

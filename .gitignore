@@ -1,8 +1,5 @@
 bin/*
 obj/*
+test/*
 *.o
-bin/mips_simulator
-bin/mips_simulator
-test/output.csv
-.DS_Store
-bin/mips_simulator
+*.DS_Store

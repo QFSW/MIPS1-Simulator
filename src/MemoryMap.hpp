@@ -25,8 +25,18 @@ namespace Clarkitechture
             T read(size_t address, bool aligned = true)
             {
                 if (aligned && address % sizeof(T) > 0) { throw BadMemoryAccess(address, "read data address was misaligned"); }
-                else if (address == ADDR_GETC + 4 - sizeof(T)) { return std::getchar(); }
-                else if (address >= ADDR_GETC && address < ADDR_GETC + 4 - sizeof(T)) { std::getchar(); return 0; }
+                else if (address >= ADDR_GETC && address <= ADDR_GETC + 4 - sizeof(T))
+                {
+                    int input = std::getchar();
+                    if (input == EOF)
+                    {
+                        int error = ferror(stdin);
+                        if (error) { throw BadIO("stdin", error); }
+                        else { return EOF; }
+                    }
+                    else if (address == ADDR_GETC + 4 - sizeof(T)) { return input; }
+                    else { return 0; }
+                }
                 else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))
                 {
                     T data = 0;
@@ -57,7 +67,7 @@ namespace Clarkitechture
             {
                 if (aligned && address % sizeof(T) > 0) { throw BadMemoryAccess(address, "write data address was misaligned"); }
                 else if (address == ADDR_PUTC + 4 - sizeof(T)) { std::putchar(data); }
-                else if (address >= ADDR_PUTC && address < ADDR_PUTC + 4 - sizeof(T)) { std::putchar(0); }
+                else if (address >= ADDR_PUTC && address <= ADDR_PUTC + 4 - sizeof(T)) { std::putchar(0); }
                 else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))
                 {
                     size_t memLocation = address - ADDR_DATA;
