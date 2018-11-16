@@ -28,7 +28,12 @@ namespace Clarkitechture
                 else if (address >= ADDR_GETC && address <= ADDR_GETC + 4 - sizeof(T))
                 {
                     int input = std::getchar();
-                    if (input == EOF) { return -1; }
+                    if (input == EOF)
+                    {
+                        int error = ferror(stdin);
+                        if (error) { throw BadIO("stdin", error); }
+                        else { return EOF; }
+                    }
                     else if (address == ADDR_GETC + 4 - sizeof(T)) { return input; }
                     else { return 0; }
                 }

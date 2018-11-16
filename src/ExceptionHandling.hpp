@@ -87,6 +87,20 @@ namespace Clarkitechture
         private:
             std::string innerException;
         };
+
+        class BadIO : public MIPSException
+        {
+        public:
+            BadIO(std::string streamName, int error);
+            int exitCode() const override;
+            
+        protected:
+            void createMessage() override;
+            
+        private:
+            std::string streamName;
+            int error;
+        };
         
         class BadProgramCounter : public MIPSException
         {
