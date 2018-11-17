@@ -49,16 +49,13 @@ namespace Clarkitechture
 
                     return data;
                 }
-                else if (address >= ADDR_INSTR && address <= ADDR_INSTR + ADDR_INSTR_LENGTH - sizeof(T))
+                else if (address >= ADDR_INSTR && address <= ADDR_INSTR + instrMemorySize - sizeof(T))
                 {
-                    if (address - ADDR_INSTR < instrMemorySize) { return 0; }
-                    else
-                    {
-                        byte* memLocation = instrMemory + (address - ADDR_INSTR);
-                        T data = *reinterpret_cast<T*>(memLocation);
-                        return data;
-                    }
+                    byte* memLocation = instrMemory + (address - ADDR_INSTR);
+                    T data = *reinterpret_cast<T*>(memLocation);
+                    return data;
                 }
+                else if (address >= ADDR_INSTR && address <= ADDR_INSTR + ADDR_INSTR_LENGTH - sizeof(T)) { return 0; }
                 else { throw BadMemoryAccess(address, "address was outside of the valid R/W memory range."); }
             }
             
