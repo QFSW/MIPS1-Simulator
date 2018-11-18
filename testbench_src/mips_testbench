@@ -29,7 +29,12 @@ run_test()
         input=${metaData[4]}
         expectedOutput=${metaData[5]}
         
-        simOutput=$(echo "$input" | "$simPath" "$binFile")
+        if [ -f "$input" ]; then
+            simOutput=$(cat "$input" | "$simPath" "$binFile")
+        else
+            simOutput=$(echo "$input" | "$simPath" "$binFile")
+        fi
+
         return=$?
         if [ $return -ge 128 ]; then
             ((return-=256))

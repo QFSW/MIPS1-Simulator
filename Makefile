@@ -13,6 +13,7 @@ BINGEN_NAME = mips_bingen
 TEST_OUT = $(BIN_DIR)/$(TEST_NAME)
 
 TST_FILES = $(TEST_SRC_DIR)/tests/*.meta
+TST_DATA = $(TEST_SRC_DIR)/tests/*.txt
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
@@ -29,6 +30,7 @@ testbench: parser
 	mkdir -p $(TST_DIR)
 	cp $(TEST_SRC_DIR)/$(TEST_NAME) $(BIN_DIR)/$(TEST_NAME)
 	cp -r $(TST_FILES) $(TST_DIR)
+	cp -r $(TST_DATA) $(TST_DIR)
 	$(TEST_SRC_DIR)/$(BINGEN_NAME) $(TST_DIR)
 
 run_tests: simulator testbench
