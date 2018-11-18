@@ -44,8 +44,8 @@ void Simulator::loadMachineCode(std::string fileName)
     
     for (size_t i = 0; i < instrCount; ++i)
     {
-        words[i] = __builtin_bswap32(words[i]);
-        instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(words[i]));
+        uint32_t flippedWord = __builtin_bswap32(words[i]);
+        instrs[i] = std::shared_ptr<Instruction>(BinaryDecoder::decodeInstruction(flippedWord));
     }
 }
 

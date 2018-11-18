@@ -53,7 +53,7 @@ namespace Clarkitechture
                 {
                     byte* memLocation = instrMemory + (address - ADDR_INSTR);
                     T data = *reinterpret_cast<T*>(memLocation);
-                    return data;
+                    return bswap(data);
                 }
                 else if (address >= ADDR_INSTR && address <= ADDR_INSTR + ADDR_INSTR_LENGTH - sizeof(T)) { return 0; }
                 else { throw BadMemoryAccess(address, "address was outside of the valid R/W memory range."); }
@@ -75,6 +75,19 @@ namespace Clarkitechture
                     } 
                 }
                 else { throw BadMemoryAccess(address, "address was outside of the valid R/W memory range."); }
+            }
+
+            template <typename T>
+            T bswap(T data)
+            {
+                byte* dataArray = reinterpret_cast<byte*>(&data);
+                T newData = 0;
+                for (int i = 0; i < sizeof(T); ++i)
+                {
+                    newData |= dataArray[i] << ((sizeof(T) - i - 1) * 8);
+                }
+
+                return newData;
             }
             
             void initInstrMemory(byte* instrMem, size_t size);
