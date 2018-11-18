@@ -1,12 +1,12 @@
 #bgtz
-#2
+#4
 #QFSW
-#
+#rs<0
 #
 
 addi $2, $0, 1
 sub $3, $0, $2
-bgtz $2 end
+bgtz $3 end
 addi $2, $2, 1
 addi $2, $2, 1
 addi $2, $2, 1

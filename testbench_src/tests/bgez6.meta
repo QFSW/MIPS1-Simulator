@@ -1,7 +1,7 @@
 #bgez
 #2
 #QFSW
-#
+#rs>0
 #
 
 addi $2, $0, 1

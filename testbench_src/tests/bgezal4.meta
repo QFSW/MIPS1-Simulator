@@ -1,11 +1,11 @@
 #bgezal
 #17
 #QFSW
-#rs>0
+#rs=0
 #
 
 addi $2, $0, 1
-bgezal $2, func
+bgezal $0, func
 addi $2, $2, 2
 addi $2, $2, 3
 addi $2, $2, 1

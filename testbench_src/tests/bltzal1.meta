@@ -1,7 +1,7 @@
 #bltzal
 #7
 #QFSW
-#
+#rs>0
 #
 
 addi $2, $0, 1
