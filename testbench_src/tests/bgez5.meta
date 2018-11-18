@@ -1,0 +1,17 @@
+#bgez
+#0
+#QFSW
+#backwards-branch
+#
+
+bgez $0, l2
+nop
+
+l1:
+jr $0
+nop
+
+l2:
+bgez $0, l1
+nop
+
