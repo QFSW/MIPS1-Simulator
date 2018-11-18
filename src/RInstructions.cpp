@@ -80,8 +80,8 @@ void XORInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void MULTInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    int64_t left = reg.read(rs);
-    int64_t right = reg.read(rt);
+    int64_t left = (int32_t)reg.read(rs);
+    int64_t right = (int32_t)reg.read(rt);
     int64_t result = left * right;
     reg.lo = 0xFFFFFFFF & result;
     reg.hi = 0xFFFFFFFF & (result >> 32);
