@@ -37,7 +37,7 @@ namespace Clarkitechture
                     else if (address == ADDR_GETC + 4 - sizeof(T)) { return input; }
                     else { return 0; }
                 }
-                else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))
+                else if (address >= ADDR_DATA && address < ADDR_DATA + ADDR_DATA_LENGTH)
                 {
                     T data = 0;
                     size_t memLocation = address - ADDR_DATA;
@@ -49,13 +49,13 @@ namespace Clarkitechture
 
                     return data;
                 }
-                else if (address >= ADDR_INSTR && address <= ADDR_INSTR + instrMemorySize - sizeof(T))
+                else if (address >= ADDR_INSTR && address < ADDR_INSTR + instrMemorySize)
                 {
                     byte* memLocation = instrMemory + (address - ADDR_INSTR);
                     T data = *reinterpret_cast<T*>(memLocation);
                     return bswap(data);
                 }
-                else if (address >= ADDR_INSTR && address <= ADDR_INSTR + ADDR_INSTR_LENGTH - sizeof(T)) { return 0; }
+                else if (address >= ADDR_INSTR && address < ADDR_INSTR + ADDR_INSTR_LENGTH) { return 0; }
                 else { throw BadMemoryAccess(address, "address was outside of the valid R/W memory range."); }
             }
             
@@ -63,9 +63,17 @@ namespace Clarkitechture
             void write(size_t address, T data)
             {
                 if (address % sizeof(T) > 0) { throw BadMemoryAccess(address, "write data address was misaligned"); }
-                else if (address == ADDR_PUTC + 4 - sizeof(T)) { std::putchar(data); }
-                else if (address >= ADDR_PUTC && address <= ADDR_PUTC + 4 - sizeof(T)) { std::putchar(0); }
-                else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))
+                else if (address >= ADDR_PUTC && address < ADDR_PUTC + 4)
+                {
+                    T val = address == ADDR_PUTC + 4 - sizeof(T) ? data : 0;
+                    int ret = std::putchar(val);
+                    if (ret == EOF)
+                    {
+                        int error = ferror(stdin);
+                        if (error) { throw BadIO("stdout", error); }
+                    }
+                }
+                else if (address >= ADDR_DATA && address < ADDR_DATA + ADDR_DATA_LENGTH)
                 {
                     size_t memLocation = address - ADDR_DATA;
                     for (int i = 0; i < sizeof(T); i++)
