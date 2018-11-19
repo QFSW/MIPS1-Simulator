@@ -22,9 +22,9 @@ namespace Clarkitechture
             MemoryMap(const MemoryMap &a);
 
             template <typename T>
-            T read(size_t address, bool aligned = true)
+            T read(size_t address)
             {
-                if (aligned && address % sizeof(T) > 0) { throw BadMemoryAccess(address, "read data address was misaligned"); }
+                if (address % sizeof(T) > 0) { throw BadMemoryAccess(address, "read data address was misaligned"); }
                 else if (address >= ADDR_GETC && address <= ADDR_GETC + 4 - sizeof(T))
                 {
                     int input = std::getchar();
@@ -60,9 +60,9 @@ namespace Clarkitechture
             }
             
             template <typename T>
-            void write(size_t address, T data, bool aligned = true)
+            void write(size_t address, T data)
             {
-                if (aligned && address % sizeof(T) > 0) { throw BadMemoryAccess(address, "write data address was misaligned"); }
+                if (address % sizeof(T) > 0) { throw BadMemoryAccess(address, "write data address was misaligned"); }
                 else if (address == ADDR_PUTC + 4 - sizeof(T)) { std::putchar(data); }
                 else if (address >= ADDR_PUTC && address <= ADDR_PUTC + 4 - sizeof(T)) { std::putchar(0); }
                 else if (address >= ADDR_DATA && address <= ADDR_DATA + ADDR_DATA_LENGTH - sizeof(T))

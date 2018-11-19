@@ -90,33 +90,41 @@ void LBInstr::delayedExecute(MemoryMap &mem, RegisterMap& reg)
 void LWLInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + (int16_t)constant;
-    uint32_t byteindex = (addr % 4);
+    uint32_t byteIndex = addr % 4;
+    uint32_t wordIndex = addr - byteIndex;
     uint32_t mask = 0xFFFFFFFF;
     
-    for(uint32_t i = addr; i < addr + 4 - byteindex; i++)
+    uint32_t rawWord = mem.read<uint32_t>(wordIndex);
+    byte* byteArray = reinterpret_cast<byte*>(&rawWord);
+    
+    for (int i = byteIndex; i < 4; ++i)
     {
         data <<= 8;
-        data += mem.read<byte>(i);
-        mask = mask >> 8;
+        data |= byteArray[3 - i];
+        mask >>= 8;
     }
-    data <<= 8 * byteindex;
-    data += (reg.read(rt) & mask);
+    data <<= 8 * byteIndex;
+    data |= (reg.read(rt) & mask);
     reg.write(rt, data);
 }
 
 void LWRInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + (int16_t)constant;
-    uint32_t byteindex = (addr % 4);
+    uint32_t byteIndex = addr % 4;
+    uint32_t wordIndex = addr - byteIndex;
     uint32_t mask = 0xFFFFFFFF;
+
+    uint32_t rawWord = mem.read<uint32_t>(wordIndex);
+    byte* byteArray = reinterpret_cast<byte*>(&rawWord);
     
-    for(uint32_t i = addr - byteindex; i < addr + 1; i++)
+    for (int i = 0; i <= byteIndex; ++i)
     {
         data <<= 8;
-        data += mem.read<byte>(i);
-        mask = mask << 8;
+        data |= byteArray[3 - i];
+        mask <<= 8;
     }
-    data += (reg.read(rt) & mask);
+    data |= (reg.read(rt) & mask);
     reg.write(rt, data);
 }
 

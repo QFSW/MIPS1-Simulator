@@ -1,11 +1,11 @@
-#lwr
+#lwl
 #72
-#ChrisDeverall
+#QFSW
 #getc
 #H
 #
 
 lui $3, 0x3000
-lwr $2, 3($3)
+lwl $2, 0($3)
 
 jr $0
