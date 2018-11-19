@@ -107,6 +107,7 @@ IInstruction* BinaryDecoder::decodeIInstruction(uint32_t bin)
     case 0b000110: return new BLEZInstr(rs, rt, constant);
     case 0b000101: return new BNEInstr(rs, rt, constant);
     case 0b100010: return new LWLInstr(rs, rt, constant);
+    case 0b100110: return new LWRInstr(rs, rt, constant);
     case 0b000001: return decodeBranchInstruction(bin);
     default:
 		throw BadInstructionDecode(bin, "invalid or unsupported opcode - " + toBinStr(opcode));

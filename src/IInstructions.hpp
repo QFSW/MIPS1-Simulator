@@ -97,6 +97,16 @@ namespace Clarkitechture
             uint32_t data;
         };
         
+        class LWRInstr : public IInstruction
+        {
+        public:
+            using IInstruction::IInstruction;
+            void execute(MemoryMap &mem, RegisterMap &reg) override;
+            
+        private:
+            uint32_t data;
+        };
+        
         class LBUInstr : public IInstruction
         {
         public:

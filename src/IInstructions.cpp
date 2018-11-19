@@ -104,6 +104,22 @@ void LWLInstr::execute(MemoryMap &mem, RegisterMap& reg)
     reg.write(rt, data);
 }
 
+void LWRInstr::execute(MemoryMap &mem, RegisterMap& reg)
+{
+    uint32_t addr = reg.read(rs) + (int16_t)constant;
+    uint32_t byteindex = (addr % 4);
+    uint32_t mask = 0xFFFFFFFF;
+    
+    for(uint32_t i = addr - byteindex; i < addr + 1; i++)
+    {
+        data <<= 8;
+        data += mem.read<byte>(i);
+        mask = mask << 8;
+    }
+    data += (reg.read(rt) & mask);
+    reg.write(rt, data);
+}
+
 void LBUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
     uint32_t addr = reg.read(rs) + (int16_t)constant;
