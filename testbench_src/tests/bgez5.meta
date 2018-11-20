@@ -6,6 +6,7 @@
 
 bgez $0, l2
 nop
+addi $2, $0, 69
 
 l1:
 jr $0
