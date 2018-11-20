@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 clear
 srcPath="tests"
@@ -21,14 +21,14 @@ run_test()
         while read -r line  || [[ -n "$line" ]]; do
             metaData+=("${line//#}")
         done < "$metaFile"
-    
+
         testInstr=${metaData[0]}
         expectedReturn=${metaData[1]}
         author=${metaData[2]}
         extraInfo=${metaData[3]}
         input=${metaData[4]}
         expectedOutput=${metaData[5]}
-        
+
         if [ -f "$input" ]; then
             simOutput=$(cat "$input" | "$simPath" "$binFile")
         else
@@ -41,7 +41,7 @@ run_test()
         fi
 
         message="exit code $return"
-        
+
         if [ ! "$extraInfo" = "" ]; then
             message="$extraInfo; $message"
         fi
@@ -49,7 +49,7 @@ run_test()
         if ((return != expectedReturn)); then
             status="Fail"
             message+=" (expected $expectedReturn)"
-            
+
             failure="test case '$testID' failed: $message"
             failures+=("$failure")
 
@@ -58,7 +58,7 @@ run_test()
             if [ ! "$simOutput" = "$expectedOutput" ]; then
                 status="Fail"
                 message+=" (expected '$expectedOutput' as the output; instead received '$simOutput')"
-                
+
                 failure="test case '$testID' failed: $message"
                 failures+=("$failure")
 

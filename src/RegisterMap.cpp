@@ -1,6 +1,7 @@
 #include "RegisterMap.hpp"
 #include "ExceptionHandling.hpp"
 #include <stdint.h>
+#include <cstring>
 
 using namespace Clarkitechture::MIPS;
 

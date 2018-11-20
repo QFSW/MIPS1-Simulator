@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <exception>
 #include <string>
+#include <cstring>
 #include <stdint.h>
 #include "ExceptionHandling.hpp"
 
