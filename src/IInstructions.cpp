@@ -20,8 +20,9 @@ void ADDIInstr::execute(MemoryMap &mem, RegisterMap& reg)
 
 void ADDIUInstr::execute(MemoryMap &mem, RegisterMap& reg)
 {
-    uint32_t left = reg.read(rs);
-    uint32_t result = left + constant;
+    int32_t left = reg.read(rs);
+    int32_t right = (int16_t)constant;
+    int32_t result = left + right;
     reg.write(rt, result);
 }
 
