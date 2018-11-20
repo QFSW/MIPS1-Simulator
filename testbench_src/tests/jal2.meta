@@ -6,6 +6,6 @@
 #
 
 addi $2, $0, 1
-jal 0xFFFF
+jal 0xFFFFFF
 nop
 jr $0

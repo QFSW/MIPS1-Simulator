@@ -12,16 +12,12 @@ int main(int argc, const char * argv[])
 {
     std::string fileName;
     Simulator sim;
-    
-    if (argc <= 1)
-    {
-        std::cerr << "please add the file path to the binary code to simulate as the first argument." << std::endl;
-        std::exit(0);
-    }
-    else { fileName = argv[1]; }
-    
+        
     try
     {
+        if (argc <= 1) { throw BadBinaryIO("please add the file path to the binary code to simulate as the first argument."); }
+        else { fileName = argv[1]; }
+
         std::cerr << "loading binary file '" << fileName << "'..." << std::endl;
         sim.loadMachineCode(fileName);
         std::cerr << "load success\nsimulating CPU...\n";

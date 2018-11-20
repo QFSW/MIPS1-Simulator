@@ -5,7 +5,7 @@
 #
 
 addi $3, $0, -1
-bltz $3, 2000
+bltz $3, 0xAFFF
 nop
 jr $0
 nop
