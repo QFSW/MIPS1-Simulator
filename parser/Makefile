@@ -1,15 +1,27 @@
-parser: main.o parser.o instructionList.o
-	mkdir -p bin
-	g++ src/main.o src/parser.o src/instructionList.o -o bin/parser
+SRC_DIR = ./src
+OBJ_DIR = ./obj
+BIN_DIR = ./bin
 
-main.o: src/main.cpp
-	g++ --std=c++11 -c src/main.cpp -o src/main.o
+PARSER_NAME = parser
+PARSER_OUT = $(BIN_DIR)/$(PARSER_NAME)
 
-parser.o: src/parser.cpp src/parser.hpp
-	g++ --std=c++11 -c src/parser.cpp -o src/parser.o
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
-instructionList.o: src/instructionList.cpp src/instructionList.hpp
-	g++ --std=c++11 -c src/instructionList.cpp -o src/instructionList.o
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -MMD -O3 -mavx
 
+parser: $(PARSER_OUT)
+
+$(PARSER_OUT): $(OBJ_FILES)
+	mkdir -p $(BIN_DIR)
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	mkdir -p $(OBJ_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+
+.PHONY: clean
 clean:
-	rm -f -rf src/*.o bin
+	rm -rf $(OBJ_DIR)
+	rm -rf $(BIN_DIR)
