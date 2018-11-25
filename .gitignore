@@ -1,5 +1,7 @@
 bin/*
 obj/*
+parser/bin/*
+parser/obj/*
 test/*
 tests/*
 *.bin
