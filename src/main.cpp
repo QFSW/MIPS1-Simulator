@@ -32,5 +32,10 @@ int main(int argc, const char * argv[])
         std::cerr << "\n\nsimulation failed\n" << e.what() << std::endl;
         std::exit(e.exitCode());
     }
+    catch (...)
+    {
+        std::cerr << "\n\nan unknown internal error occurred" << std::endl;
+        std::exit(-20);
+    }
     return 0;
 }
