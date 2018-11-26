@@ -1,26 +1,22 @@
-#lw
-#-1
+#lhu
+#1
 #QFSW
-#EOF
+#EOF-offset
 #tests/sample3.txt
-#200IQ play universe brain
+#
 
 addi $5, $0, -1
 addi $4, $0, 26
 lui $3, 0x3000
 
 read:
-lb $2, 3($3)
+lhu $2, 0($3)
 nop
-beq $2, $5 writeskp
-nop
-
-write:
-sw $2, 4($3)
-
-writeskp:
+add $2, $2, $3
 addi $4, $4, -1
 bgez $4, read
 nop
 
+addi $2, $2, 1
+srl $2, $2, 16
 jr $0
