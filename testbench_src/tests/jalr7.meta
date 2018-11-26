@@ -1,0 +1,15 @@
+#jalr
+#-11
+#ChrisDeverall
+#
+#
+
+addi $1, $0, 23
+bgezal $1, 4
+nop
+add $3, $31, $1
+jalr $3
+nop
+addi $4, $0, 1
+add $2, $4, $31
+nop
