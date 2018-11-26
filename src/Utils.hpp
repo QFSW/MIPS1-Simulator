@@ -14,8 +14,8 @@ namespace Clarkitechture
         template <typename T>
         bool sameSign(T a, T b)
         {
-            if (a < 0 & b < 0) { return true; }
-            if (a >= 0 & b >= 0) { return true; }
+            if (a < 0 && b < 0) { return true; }
+            if (a >= 0 && b >= 0) { return true; }
             else { return false; }
         }
         
