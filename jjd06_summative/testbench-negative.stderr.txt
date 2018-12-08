@@ -1,0 +1,768 @@
+Disable instruction ' add' for test '[3;J[H[2Jadd1'
+FAIL: test case 'add2' failed: negative rt; exit code 0 (expected 3)
+Disable instruction ' add' for test 'add2'
+FAIL: test case 'add3' failed: negative rs; exit code 0 (expected 8)
+Disable instruction ' add' for test 'add3'
+Exception :   overflow: s=1073741824, t=1073741824
+Disable instruction ' add' for test 'add4'
+Exception :   overflow: s=1073741825, t=1073741825
+Disable instruction ' add' for test 'add5'
+Exception :   overflow: s=-2147483646, t=-2147483646
+Disable instruction ' add' for test 'add6'
+Exception :   overflow: s=-2147483648, t=-2147483648
+Disable instruction ' add' for test 'add7'
+Disable instruction ' addi' for test 'addi1'
+FAIL: test case 'addi2' failed: negative immediate; exit code 0 (expected 2)
+Disable instruction ' addi' for test 'addi2'
+FAIL: test case 'addi3' failed: overflow; exit code 0 (expected -10)
+Disable instruction ' addi' for test 'addi3'
+FAIL: test case 'addi4' failed: underflow; exit code 0 (expected -10)
+Disable instruction ' addi' for test 'addi4'
+Disable instruction ' addi' for test 'addi5'
+FAIL: test case 'addiu1' failed: exit code 3 (expected 2)
+Disable instruction ' addiu' for test 'addiu1'
+Disable instruction ' addiu' for test 'addiu2'
+FAIL: test case 'addiu3' failed: underflow; exit code 0 (expected -100)
+Disable instruction ' addiu' for test 'addiu3'
+FAIL: test case 'addiu4' failed: sign-extension; exit code 1 (expected 0)
+Disable instruction ' addiu' for test 'addiu4'
+Disable instruction ' addu' for test 'addu1'
+FAIL: test case 'addu2' failed: overflow; exit code 0 (expected 2)
+Disable instruction ' addu' for test 'addu2'
+FAIL: test case 'addu3' failed: underflow; exit code 0 (expected 1)
+Disable instruction ' addu' for test 'addu3'
+Disable instruction ' and' for test 'and1'
+Disable instruction ' and' for test 'and2'
+Disable instruction ' andi' for test 'andi1'
+Disable instruction ' andi' for test 'andi2'
+Disable instruction ' andi' for test 'andi3'
+Disable instruction ' beq' for test 'beq1'
+Disable instruction ' beq' for test 'beq2'
+FAIL: test case 'beq3' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' beq' for test 'beq3'
+FAIL: test case 'beq4' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' beq' for test 'beq4'
+Disable instruction ' beq' for test 'beq5'
+Disable instruction ' bgez' for test 'bgez1'
+Disable instruction ' bgez' for test 'bgez2'
+FAIL: test case 'bgez3' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bgez' for test 'bgez3'
+FAIL: test case 'bgez4' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bgez' for test 'bgez4'
+FAIL: test case 'bgez5' failed: backwards-branch; exit code 69 (expected 0)
+Disable instruction ' bgez' for test 'bgez5'
+FAIL: test case 'bgez6' failed: rs>0; exit code 4 (expected 2)
+Disable instruction ' bgez' for test 'bgez6'
+Disable instruction ' bgezal' for test 'bgezal1'
+Disable instruction ' bgezal' for test 'bgezal2'
+Disable instruction ' bgezal' for test 'bgezal3'
+FAIL: test case 'bgezal4' failed: rs=0; exit code 7 (expected 17)
+Disable instruction ' bgezal' for test 'bgezal4'
+Disable instruction ' bgtz' for test 'bgtz1'
+Disable instruction ' bgtz' for test 'bgtz2'
+FAIL: test case 'bgtz3' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bgtz' for test 'bgtz3'
+FAIL: test case 'bgtz4' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bgtz' for test 'bgtz4'
+FAIL: test case 'bgtz5' failed: backwards-branch; exit code 69 (expected 0)
+Disable instruction ' bgtz' for test 'bgtz5'
+Disable instruction ' bgtz' for test 'bgtz6'
+Disable instruction ' blez' for test 'blez1'
+FAIL: test case 'blez2' failed: rs=0; exit code 4 (expected 2)
+Disable instruction ' blez' for test 'blez2'
+FAIL: test case 'blez3' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' blez' for test 'blez3'
+FAIL: test case 'blez4' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' blez' for test 'blez4'
+FAIL: test case 'blez5' failed: backwards-branch; exit code 69 (expected 0)
+Disable instruction ' blez' for test 'blez5'
+FAIL: test case 'blez6' failed: rs<0; exit code 4 (expected 2)
+Disable instruction ' blez' for test 'blez6'
+Disable instruction ' bltz' for test 'bltz1'
+Disable instruction ' bltz' for test 'bltz2'
+FAIL: test case 'bltz3' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bltz' for test 'bltz3'
+FAIL: test case 'bltz4' failed: bad-pc; exit code 0 (expected -11)
+Disable instruction ' bltz' for test 'bltz4'
+FAIL: test case 'bltz5' failed: backwards-branch; exit code 69 (expected 0)
+Disable instruction ' bltz' for test 'bltz5'
+FAIL: test case 'bltz6' failed: rs<0; exit code 4 (expected 2)
+Disable instruction ' bltz' for test 'bltz6'
+Disable instruction ' bltzal' for test 'bltzal1'
+FAIL: test case 'bltzal2' failed: rs<0; exit code 4 (expected 14)
+Disable instruction ' bltzal' for test 'bltzal2'
+Disable instruction ' bgezal' for test 'bltzal3'
+Disable instruction ' bltzal' for test 'bltzal4'
+Disable instruction ' bne' for test 'bne1'
+FAIL: test case 'bne2' failed: rs!=rt; exit code 4 (expected 2)
+Disable instruction ' bne' for test 'bne2'
+FAIL: test case 'bne3' failed: bad-pc; exit code 100 (expected -11)
+Disable instruction ' bne' for test 'bne3'
+FAIL: test case 'bne4' failed: bad-pc; exit code 100 (expected -11)
+Disable instruction ' bne' for test 'bne4'
+Disable instruction ' bne' for test 'bne5'
+Disable instruction ' div' for test 'div1'
+Disable instruction ' div' for test 'div2'
+FAIL: test case 'div3' failed: standard_negative; exit code 0 (expected -4)
+Disable instruction ' div' for test 'div3'
+Disable instruction ' div' for test 'div4'
+Disable instruction ' div' for test 'div5'
+FAIL: test case 'divu1' failed: standard; exit code 0 (expected 2)
+Disable instruction ' divu' for test 'divu1'
+Disable instruction ' divu' for test 'divu2'
+Disable instruction ' divu' for test 'divu3'
+Disable instruction ' stack' for test 'factorial1'
+Disable instruction ' stack' for test 'factorial2'
+Disable instruction ' stack' for test 'factorial3'
+Disable instruction ' stack' for test 'factorial4'
+Disable instruction ' stack' for test 'factorial5'
+Disable instruction ' lw' for test 'filedump1'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump2' failed: EOF; exit code 1 (expected -1)
+Disable instruction ' lh' for test 'filedump2'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump3' failed: EOF; exit code -1 (expected '200IQ play universe brain' as the output; instead received '	
+')
+Disable instruction ' lb' for test 'filedump3'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump4' failed: EOF-offset; exit code 2 (expected 0)
+Disable instruction '' for test '')
+'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+Disable instruction ' lh' for test 'filedump4'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump6' failed: EOF-offset; exit code 0 (expected 1)
+Disable instruction ' lb' for test 'filedump5'
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+Disable instruction ' lhu' for test 'filedump6'
+Disable instruction ' lbu' for test 'filedump7'
+Disable instruction ' sw' for test 'hello'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' j' for test 'j1'
+FAIL: test case 'j3' failed: delay-slot; exit code 14 (expected 12)
+Disable instruction ' j' for test 'j2'
+FAIL: test case 'j4' failed: exit code 4 (expected 3)
+Disable instruction ' j' for test 'j3'
+Disable instruction ' j' for test 'j4'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' jal' for test 'jal1'
+FAIL: test case 'jal3' failed: delay-slot; exit code 14 (expected 12)
+Disable instruction ' jal' for test 'jal2'
+FAIL: test case 'jal4' failed: chain; exit code 0 (expected 20)
+Disable instruction ' jal' for test 'jal3'
+Disable instruction ' jal' for test 'jal4'
+Disable instruction ' jalr' for test 'jalr1'
+FAIL: test case 'jalr3' failed: delay-slot; exit code 5 (expected 21)
+Disable instruction ' jalr' for test 'jalr2'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+FAIL: test case 'jalr4' failed: exit code -11 (expected 0)
+Disable instruction ' jalr' for test 'jalr3'
+Disable instruction ' jalr' for test 'jalr4'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+FAIL: test case 'jalr6' failed: exit code -11 (expected 8)
+Disable instruction ' jalr' for test 'jalr5'
+Disable instruction ' jalr' for test 'jalr6'
+Exception : Attempt to execute instruction at mis-aligned address 0x00000002.
+Disable instruction ' jr' for test 'jr1'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' jr' for test 'jr2'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+FAIL: test case 'jr4' failed: delay-slot; exit code -11 (expected 2)
+Disable instruction ' jr' for test 'jr3'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+FAIL: test case 'jr5' failed: exit code -11 (expected 3)
+Disable instruction ' jr' for test 'jr4'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' jr' for test 'jr5'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+FAIL: test case 'lb10' failed: instr-nops; exit code -11 (expected 0)
+Disable instruction ' jr' for test 'jr6'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lb' for test 'lb10'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lb12' failed: getc-offset; exit code 0 (expected 72)
+Disable instruction ' lb' for test 'lb11'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lb13' failed: null+eof; exit code 0 (expected -1)
+Disable instruction ' lb' for test 'lb12'
+FAIL: test case 'lb1' failed: exit code 0 (expected 100)
+Disable instruction ' lb' for test 'lb13'
+FAIL: test case 'lb2' failed: exit code 0 (expected 100)
+Disable instruction ' lb' for test 'lb1'
+FAIL: test case 'lb3' failed: exit code 0 (expected 100)
+Disable instruction ' lb' for test 'lb2'
+FAIL: test case 'lb4' failed: sign-extension; exit code 0 (expected -1)
+Disable instruction ' lb' for test 'lb3'
+FAIL: test case 'lb5' failed: exit code 0 (expected 1)
+Disable instruction ' lb' for test 'lb4'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lb' for test 'lb5'
+sub-word access to GETC.
+FAIL: test case 'lb7' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lb' for test 'lb6'
+sub-word access to PUTC.
+FAIL: test case 'lb8' failed: putc; exit code 0 (expected -11)
+Disable instruction ' lb' for test 'lb7'
+FAIL: test case 'lb9' failed: instr; exit code 0 (expected 13)
+Disable instruction ' lb' for test 'lb8'
+Disable instruction ' lb' for test 'lb9'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lbu' for test 'lbu10'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lbu12' failed: getc-offset; exit code 0 (expected 72)
+Disable instruction ' lbu' for test 'lbu11'
+FAIL: test case 'lbu1' failed: exit code 0 (expected 100)
+Disable instruction ' lbu' for test 'lbu12'
+FAIL: test case 'lbu2' failed: exit code 0 (expected 100)
+Disable instruction ' lbu' for test 'lbu1'
+FAIL: test case 'lbu3' failed: exit code 0 (expected 100)
+Disable instruction ' lbu' for test 'lbu2'
+Disable instruction ' lbu' for test 'lbu3'
+FAIL: test case 'lbu5' failed: exit code 0 (expected 1)
+Disable instruction ' lbu' for test 'lbu4'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lbu' for test 'lbu5'
+sub-word access to GETC.
+FAIL: test case 'lbu7' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lbu' for test 'lbu6'
+sub-word access to PUTC.
+FAIL: test case 'lbu8' failed: putc; exit code 0 (expected -11)
+Disable instruction ' lbu' for test 'lbu7'
+FAIL: test case 'lbu9' failed: instr; exit code 0 (expected 13)
+Disable instruction ' lbu' for test 'lbu8'
+Disable instruction ' lbu' for test 'lbu9'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lh' for test 'lh10'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lh12' failed: getc-offset; exit code 0 (expected 72)
+Disable instruction ' lh' for test 'lh11'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lh13' failed: null+eof; exit code 0 (expected -1)
+Disable instruction ' lh' for test 'lh12'
+FAIL: test case 'lh1' failed: exit code 0 (expected 100)
+Disable instruction ' lh' for test 'lh13'
+Exception : Address is not aligned.
+Disable instruction ' lh' for test 'lh1'
+FAIL: test case 'lh3' failed: exit code 0 (expected 100)
+Disable instruction ' lh' for test 'lh2'
+FAIL: test case 'lh4' failed: sign-extension; exit code 0 (expected -1)
+Disable instruction ' lh' for test 'lh3'
+FAIL: test case 'lh5' failed: exit code 0 (expected 3)
+Disable instruction ' lh' for test 'lh4'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lh' for test 'lh5'
+sub-word access to GETC.
+FAIL: test case 'lh7' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lh' for test 'lh6'
+sub-word access to PUTC.
+FAIL: test case 'lh8' failed: putc; exit code 0 (expected -11)
+Disable instruction ' lh' for test 'lh7'
+FAIL: test case 'lh9' failed: instr; exit code 0 (expected 13)
+Disable instruction ' lh' for test 'lh8'
+Disable instruction ' lh' for test 'lh9'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lhu' for test 'lhu10'
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lhu12' failed: getc-offset; exit code 0 (expected 72)
+Disable instruction ' lhu' for test 'lhu11'
+FAIL: test case 'lhu1' failed: exit code 0 (expected 100)
+Disable instruction ' lhu' for test 'lhu12'
+Exception : Address is not aligned.
+Disable instruction ' lhu' for test 'lhu1'
+FAIL: test case 'lhu3' failed: exit code 0 (expected 100)
+Disable instruction ' lhu' for test 'lhu2'
+Disable instruction ' lhu' for test 'lhu3'
+FAIL: test case 'lhu5' failed: exit code 0 (expected 3)
+Disable instruction ' lhu' for test 'lhu4'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lhu' for test 'lhu5'
+sub-word access to GETC.
+FAIL: test case 'lhu7' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lhu' for test 'lhu6'
+sub-word access to PUTC.
+FAIL: test case 'lhu8' failed: putc; exit code 0 (expected -11)
+Disable instruction ' lhu' for test 'lhu7'
+FAIL: test case 'lhu9' failed: instr; exit code 0 (expected 13)
+Disable instruction ' lhu' for test 'lhu8'
+Disable instruction ' lhu' for test 'lhu9'
+Disable instruction ' lui' for test 'lui1'
+FAIL: test case 'lui3' failed: exit code 0 (expected 1)
+Disable instruction ' lui' for test 'lui2'
+Exception : Attempt to access range [0,INSTR_ADDR).
+FAIL: test case 'lw10' failed: data-bottom-boundary; exit code -11 (expected 0)
+Disable instruction ' lui' for test 'lui3'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lw' for test 'lw10'
+Disable instruction ' lw' for test 'lw11'
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Disable instruction ' lw' for test 'lw12'
+Disable instruction ' lw' for test 'lw13'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lw' for test 'lw14'
+Disable instruction ' lw' for test 'lw15'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' lw' for test 'lw16'
+FAIL: test case 'lw1' failed: exit code 0 (expected 100)
+Disable instruction ' lw' for test 'lw17'
+Exception : Address is not aligned.
+Disable instruction ' lw' for test 'lw1'
+Disable instruction ' lw' for test 'lw2'
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+Disable instruction ' lw' for test 'lw3'
+FAIL: test case 'lw5' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lw' for test 'lw4'
+FAIL: test case 'lw6' failed: putc; exit code 0 (expected -11)
+Disable instruction ' lw' for test 'lw5'
+FAIL: test case 'lw7' failed: instr; exit code 0 (expected 13)
+Disable instruction ' lw' for test 'lw6'
+Disable instruction ' lw' for test 'lw7'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lw' for test 'lw8'
+Disable instruction ' lw' for test 'lw9'
+Disable instruction ' lwl' for test 'lwl1'
+FAIL: test case 'lwl3' failed: misalignedby1byte1; exit code -1 (expected 102)
+Disable instruction ' lwl' for test 'lwl2'
+Disable instruction ' lwl' for test 'lwl3'
+FAIL: test case 'lwl5' failed: misalignedby3; exit code 0 (expected 102)
+Disable instruction ' lwl' for test 'lwl4'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lwl' for test 'lwl5'
+FAIL: test case 'lwl7' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lwl' for test 'lwl6'
+FAIL: test case 'lwl8' failed: instr; exit code 0 (expected 14)
+Disable instruction ' lwl' for test 'lwl7'
+Disable instruction ' lwl' for test 'lwl8'
+Disable instruction ' lwr' for test 'lwr1'
+Disable instruction ' lwr' for test 'lwr2'
+FAIL: test case 'lwr4' failed: misaligned3; exit code 68 (expected 85)
+Disable instruction ' lwr' for test 'lwr3'
+FAIL: test case 'lwr5' failed: getc; exit code 0 (expected 72)
+Disable instruction ' lwr' for test 'lwr4'
+Exception : Attempt to access range [0,INSTR_ADDR).
+Disable instruction ' lwr' for test 'lwr5'
+Disable instruction ' lwr' for test 'lwr6'
+Disable instruction ' mfhi' for test 'mfhi1'
+FAIL: test case 'mfhi3' failed: override; exit code 0 (expected 7)
+Disable instruction ' mthi' for test 'mfhi2'
+Disable instruction ' mfhi' for test 'mfhi3'
+Disable instruction ' mflo' for test 'mflo1'
+FAIL: test case 'mflo3' failed: overridinghi; exit code 0 (expected 12)
+Disable instruction ' mflo' for test 'mflo2'
+Disable instruction ' mflo' for test 'mflo3'
+Disable instruction ' mthi' for test 'mthi1'
+Disable instruction ' mthi' for test 'mthi2'
+Disable instruction ' mtlo' for test 'mtlo1'
+Disable instruction ' mtlo' for test 'mtlo2'
+Disable instruction ' mult' for test 'mult1'
+FAIL: test case 'mult3' failed: overflow; exit code 0 (expected -128)
+Disable instruction ' mult' for test 'mult2'
+Disable instruction ' mult' for test 'mult3'
+Disable instruction ' mult' for test 'mult4'
+Disable instruction ' multu' for test 'multu1'
+Disable instruction ' multu' for test 'multu2'
+Disable instruction ' internal' for test 'nopskp'
+Disable instruction ' function' for test 'numread1'
+Disable instruction ' function' for test 'numread2'
+Disable instruction ' function' for test 'numread3'
+Disable instruction ' function' for test 'numwrite1'
+Disable instruction ' function' for test 'numwrite2'
+Disable instruction ' function' for test 'numwrite3'
+Disable instruction ' function' for test 'numwrite4'
+Disable instruction ' or' for test 'or1'
+Disable instruction ' or' for test 'or2'
+Disable instruction ' ori' for test 'ori1'
+FAIL: test case 'ori3' failed: zero-extension; exit code 1 (expected 0)
+Disable instruction ' ori' for test 'ori2'
+Disable instruction ' ori' for test 'ori3'
+Disable instruction ' internal' for test 'reg0'
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Disable instruction ' sb' for test 'sb10'
+FAIL: test case 'sb1' failed: standard; exit code 0 (expected 13)
+Disable instruction ' sb' for test 'sb11'
+FAIL: test case 'sb2' failed: composite; exit code 0 (expected 69)
+Disable instruction ' sb' for test 'sb1'
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Disable instruction ' sb' for test 'sb2'
+FAIL: test case 'sb4' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+Disable instruction ' sb' for test 'sb3'
+FAIL: test case 'sb5' failed: getc; exit code 0 (expected -11)
+Disable instruction ' sb' for test 'sb4'
+FAIL: test case 'sb6' failed: instr; exit code 0 (expected -11)
+Disable instruction ' sb' for test 'sb5'
+FAIL: test case 'sb7' failed: instr-nops; exit code 0 (expected -11)
+Disable instruction ' sb' for test 'sb6'
+FAIL: test case 'sb8' failed: addr-null; exit code 0 (expected -11)
+Disable instruction ' sb' for test 'sb7'
+FAIL: test case 'sb9' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received '')
+Disable instruction ' sb' for test 'sb8'
+sub-word access to PUTC.
+sub-word access to PUTC.
+FAIL: test case 'sh10' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received ' K')
+Disable instruction ' sb' for test 'sb9'
+Disable instruction ' sh' for test 'sh10'
+FAIL: test case 'sh12' failed: data-above-boundary; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh11'
+FAIL: test case 'sh1' failed: standard; exit code 0 (expected 13)
+Disable instruction ' sh' for test 'sh12'
+FAIL: test case 'sh2' failed: composite; exit code 0 (expected 69)
+Disable instruction ' sh' for test 'sh1'
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Disable instruction ' sh' for test 'sh2'
+FAIL: test case 'sh4' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+Disable instruction ' sh' for test 'sh3'
+FAIL: test case 'sh5' failed: getc; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh4'
+FAIL: test case 'sh6' failed: instr; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh5'
+FAIL: test case 'sh7' failed: instr-nops; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh6'
+FAIL: test case 'sh8' failed: addr-null; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh7'
+FAIL: test case 'sh9' failed: misaligned; exit code 0 (expected -11)
+Disable instruction ' sh' for test 'sh8'
+Disable instruction ' sh' for test 'sh9'
+Disable instruction ' sll' for test 'sll1'
+Disable instruction ' sll' for test 'sll2'
+Disable instruction ' sllv' for test 'sllv1'
+FAIL: test case 'sllv3' failed: largevar; exit code 0 (expected 6)
+Disable instruction ' sllv' for test 'sllv2'
+Disable instruction ' sllv' for test 'sllv3'
+Disable instruction ' slt' for test 'slt1'
+Disable instruction ' slt' for test 'slt2'
+Disable instruction ' slt' for test 'slt3'
+FAIL: test case 'slt5' failed: exit code 0 (expected 1)
+Disable instruction ' slt' for test 'slt4'
+Disable instruction ' slt' for test 'slt5'
+Disable instruction ' slti' for test 'slti1'
+Disable instruction ' slti' for test 'slti2'
+Disable instruction ' sltiu' for test 'sltiu1'
+Disable instruction ' sltiu' for test 'sltiu2'
+FAIL: test case 'sltiu4' failed: sign-extension; exit code 0 (expected 1)
+Disable instruction ' sltiu' for test 'sltiu3'
+Disable instruction ' sltiu' for test 'sltiu4'
+Disable instruction ' sltu' for test 'sltu1'
+Disable instruction ' sltu' for test 'sltu2'
+Disable instruction ' sra' for test 'sra1'
+FAIL: test case 'sra3' failed: attemptToChangeSign; exit code 0 (expected -1)
+Disable instruction ' sra' for test 'sra2'
+Disable instruction ' sra' for test 'sra3'
+Disable instruction ' srav' for test 'srav1'
+FAIL: test case 'srav3' failed: largevarpos; exit code 0 (expected 7)
+Disable instruction ' srav' for test 'srav2'
+FAIL: test case 'srav4' failed: largevarneg; exit code 0 (expected -3)
+Disable instruction ' srav' for test 'srav3'
+Disable instruction ' srav' for test 'srav4'
+Disable instruction ' srl' for test 'srl1'
+FAIL: test case 'srl3' failed: signchange; exit code 0 (expected 1)
+Disable instruction ' srl' for test 'srl2'
+Disable instruction ' srl' for test 'srl3'
+Disable instruction ' srlv' for test 'srlv1'
+FAIL: test case 'srlv3' failed: largevar; exit code 0 (expected 7)
+Disable instruction ' srlv' for test 'srlv2'
+Disable instruction ' srlv' for test 'srlv3'
+Exception :     overflow, s=0, t=-2147483648
+Disable instruction ' sub' for test 'sub1'
+Disable instruction ' sub' for test 'sub2'
+Exception :     overflow, s=-2147483648, t=1073741824
+Disable instruction ' sub' for test 'sub3'
+Exception :     overflow, s=5, t=-2147483648
+Disable instruction ' sub' for test 'sub4'
+Disable instruction ' sub' for test 'sub5'
+Disable instruction ' subu' for test 'subu1'
+FAIL: test case 'subu3' failed: negresult; exit code 0 (expected -9)
+Disable instruction ' subu' for test 'subu2'
+Disable instruction ' subu' for test 'subu3'
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Disable instruction ' sw' for test 'sw10'
+Disable instruction ' sw' for test 'sw11'
+FAIL: test case 'sw13' failed: data-above-boundary; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw12'
+FAIL: test case 'sw14' failed: instr-bottom-boundary; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw13'
+FAIL: test case 'sw15' failed: instr-below-boundary; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw14'
+FAIL: test case 'sw16' failed: instr-top-boundary; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw15'
+FAIL: test case 'sw17' failed: instr-above-boundary; exit code 0 (expected -11)
+Disable instruction ' lw' for test 'sw16'
+FAIL: test case 'sw1' failed: standard; exit code 0 (expected 13)
+Disable instruction ' sw' for test 'sw17'
+FAIL: test case 'sw2' failed: standardneg; exit code 0 (expected -5)
+Disable instruction ' sw' for test 'sw1'
+Exception : Address is not aligned.
+Disable instruction ' sw' for test 'sw2'
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Disable instruction ' sw' for test 'sw3'
+FAIL: test case 'sw5' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+Disable instruction ' sw' for test 'sw4'
+FAIL: test case 'sw6' failed: instr; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw5'
+FAIL: test case 'sw7' failed: instr-nops; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw6'
+FAIL: test case 'sw8' failed: addr-null; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw7'
+FAIL: test case 'sw9' failed: getc; exit code 0 (expected -11)
+Disable instruction ' sw' for test 'sw8'
+Disable instruction ' sw' for test 'sw9'
+Disable instruction ' xor' for test 'xor1'
+FAIL: test case 'xor3' failed: exit code 14 (expected 0)
+Disable instruction ' xor' for test 'xor2'
+Disable instruction ' xor' for test 'xor3'
+Disable instruction ' xori' for test 'xori1'
+FAIL: test case 'xori3' failed: zero-extension; exit code 1 (expected 0)
+Disable instruction ' xori' for test 'xori2'
+FAIL: test case 'xori4' failed: zero-extension; exit code -1 (expected 0)
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+
+
+
+141 failures were encountered
+ - test case 'add2' failed: negative rt; exit code 0 (expected 3)
+ - test case 'add3' failed: negative rs; exit code 0 (expected 8)
+ - test case 'addi2' failed: negative immediate; exit code 0 (expected 2)
+ - test case 'addi3' failed: overflow; exit code 0 (expected -10)
+ - test case 'addi4' failed: underflow; exit code 0 (expected -10)
+ - test case 'addiu1' failed: exit code 3 (expected 2)
+ - test case 'addiu3' failed: underflow; exit code 0 (expected -100)
+ - test case 'addiu4' failed: sign-extension; exit code 1 (expected 0)
+ - test case 'addu2' failed: overflow; exit code 0 (expected 2)
+ - test case 'addu3' failed: underflow; exit code 0 (expected 1)
+ - test case 'beq3' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'beq4' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bgez3' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bgez4' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bgez5' failed: backwards-branch; exit code 69 (expected 0)
+ - test case 'bgez6' failed: rs>0; exit code 4 (expected 2)
+ - test case 'bgezal4' failed: rs=0; exit code 7 (expected 17)
+ - test case 'bgtz3' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bgtz4' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bgtz5' failed: backwards-branch; exit code 69 (expected 0)
+ - test case 'blez2' failed: rs=0; exit code 4 (expected 2)
+ - test case 'blez3' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'blez4' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'blez5' failed: backwards-branch; exit code 69 (expected 0)
+ - test case 'blez6' failed: rs<0; exit code 4 (expected 2)
+ - test case 'bltz3' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bltz4' failed: bad-pc; exit code 0 (expected -11)
+ - test case 'bltz5' failed: backwards-branch; exit code 69 (expected 0)
+ - test case 'bltz6' failed: rs<0; exit code 4 (expected 2)
+ - test case 'bltzal2' failed: rs<0; exit code 4 (expected 14)
+ - test case 'bne2' failed: rs!=rt; exit code 4 (expected 2)
+ - test case 'bne3' failed: bad-pc; exit code 100 (expected -11)
+ - test case 'bne4' failed: bad-pc; exit code 100 (expected -11)
+ - test case 'div3' failed: standard_negative; exit code 0 (expected -4)
+ - test case 'divu1' failed: standard; exit code 0 (expected 2)
+ - test case 'filedump2' failed: EOF; exit code 1 (expected -1)
+ - test case 'filedump3' failed: EOF; exit code -1 (expected '200IQ play universe brain' as the output; instead received '	
+')
+ - test case 'filedump4' failed: EOF-offset; exit code 2 (expected 0)
+ - test case 'filedump6' failed: EOF-offset; exit code 0 (expected 1)
+ - test case 'j3' failed: delay-slot; exit code 14 (expected 12)
+ - test case 'j4' failed: exit code 4 (expected 3)
+ - test case 'jal3' failed: delay-slot; exit code 14 (expected 12)
+ - test case 'jal4' failed: chain; exit code 0 (expected 20)
+ - test case 'jalr3' failed: delay-slot; exit code 5 (expected 21)
+ - test case 'jalr4' failed: exit code -11 (expected 0)
+ - test case 'jalr6' failed: exit code -11 (expected 8)
+ - test case 'jr4' failed: delay-slot; exit code -11 (expected 2)
+ - test case 'jr5' failed: exit code -11 (expected 3)
+ - test case 'lb10' failed: instr-nops; exit code -11 (expected 0)
+ - test case 'lb12' failed: getc-offset; exit code 0 (expected 72)
+ - test case 'lb13' failed: null+eof; exit code 0 (expected -1)
+ - test case 'lb1' failed: exit code 0 (expected 100)
+ - test case 'lb2' failed: exit code 0 (expected 100)
+ - test case 'lb3' failed: exit code 0 (expected 100)
+ - test case 'lb4' failed: sign-extension; exit code 0 (expected -1)
+ - test case 'lb5' failed: exit code 0 (expected 1)
+ - test case 'lb7' failed: getc; exit code 0 (expected 72)
+ - test case 'lb8' failed: putc; exit code 0 (expected -11)
+ - test case 'lb9' failed: instr; exit code 0 (expected 13)
+ - test case 'lbu12' failed: getc-offset; exit code 0 (expected 72)
+ - test case 'lbu1' failed: exit code 0 (expected 100)
+ - test case 'lbu2' failed: exit code 0 (expected 100)
+ - test case 'lbu3' failed: exit code 0 (expected 100)
+ - test case 'lbu5' failed: exit code 0 (expected 1)
+ - test case 'lbu7' failed: getc; exit code 0 (expected 72)
+ - test case 'lbu8' failed: putc; exit code 0 (expected -11)
+ - test case 'lbu9' failed: instr; exit code 0 (expected 13)
+ - test case 'lh12' failed: getc-offset; exit code 0 (expected 72)
+ - test case 'lh13' failed: null+eof; exit code 0 (expected -1)
+ - test case 'lh1' failed: exit code 0 (expected 100)
+ - test case 'lh3' failed: exit code 0 (expected 100)
+ - test case 'lh4' failed: sign-extension; exit code 0 (expected -1)
+ - test case 'lh5' failed: exit code 0 (expected 3)
+ - test case 'lh7' failed: getc; exit code 0 (expected 72)
+ - test case 'lh8' failed: putc; exit code 0 (expected -11)
+ - test case 'lh9' failed: instr; exit code 0 (expected 13)
+ - test case 'lhu12' failed: getc-offset; exit code 0 (expected 72)
+ - test case 'lhu1' failed: exit code 0 (expected 100)
+ - test case 'lhu3' failed: exit code 0 (expected 100)
+ - test case 'lhu5' failed: exit code 0 (expected 3)
+ - test case 'lhu7' failed: getc; exit code 0 (expected 72)
+ - test case 'lhu8' failed: putc; exit code 0 (expected -11)
+ - test case 'lhu9' failed: instr; exit code 0 (expected 13)
+ - test case 'lui3' failed: exit code 0 (expected 1)
+ - test case 'lw10' failed: data-bottom-boundary; exit code -11 (expected 0)
+ - test case 'lw1' failed: exit code 0 (expected 100)
+ - test case 'lw5' failed: getc; exit code 0 (expected 72)
+ - test case 'lw6' failed: putc; exit code 0 (expected -11)
+ - test case 'lw7' failed: instr; exit code 0 (expected 13)
+ - test case 'lwl3' failed: misalignedby1byte1; exit code -1 (expected 102)
+ - test case 'lwl5' failed: misalignedby3; exit code 0 (expected 102)
+ - test case 'lwl7' failed: getc; exit code 0 (expected 72)
+ - test case 'lwl8' failed: instr; exit code 0 (expected 14)
+ - test case 'lwr4' failed: misaligned3; exit code 68 (expected 85)
+ - test case 'lwr5' failed: getc; exit code 0 (expected 72)
+ - test case 'mfhi3' failed: override; exit code 0 (expected 7)
+ - test case 'mflo3' failed: overridinghi; exit code 0 (expected 12)
+ - test case 'mult3' failed: overflow; exit code 0 (expected -128)
+ - test case 'ori3' failed: zero-extension; exit code 1 (expected 0)
+ - test case 'sb1' failed: standard; exit code 0 (expected 13)
+ - test case 'sb2' failed: composite; exit code 0 (expected 69)
+ - test case 'sb4' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+ - test case 'sb5' failed: getc; exit code 0 (expected -11)
+ - test case 'sb6' failed: instr; exit code 0 (expected -11)
+ - test case 'sb7' failed: instr-nops; exit code 0 (expected -11)
+ - test case 'sb8' failed: addr-null; exit code 0 (expected -11)
+ - test case 'sb9' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received '')
+ - test case 'sh10' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received ' K')
+ - test case 'sh12' failed: data-above-boundary; exit code 0 (expected -11)
+ - test case 'sh1' failed: standard; exit code 0 (expected 13)
+ - test case 'sh2' failed: composite; exit code 0 (expected 69)
+ - test case 'sh4' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+ - test case 'sh5' failed: getc; exit code 0 (expected -11)
+ - test case 'sh6' failed: instr; exit code 0 (expected -11)
+ - test case 'sh7' failed: instr-nops; exit code 0 (expected -11)
+ - test case 'sh8' failed: addr-null; exit code 0 (expected -11)
+ - test case 'sh9' failed: misaligned; exit code 0 (expected -11)
+ - test case 'sllv3' failed: largevar; exit code 0 (expected 6)
+ - test case 'slt5' failed: exit code 0 (expected 1)
+ - test case 'sltiu4' failed: sign-extension; exit code 0 (expected 1)
+ - test case 'sra3' failed: attemptToChangeSign; exit code 0 (expected -1)
+ - test case 'srav3' failed: largevarpos; exit code 0 (expected 7)
+ - test case 'srav4' failed: largevarneg; exit code 0 (expected -3)
+ - test case 'srl3' failed: signchange; exit code 0 (expected 1)
+ - test case 'srlv3' failed: largevar; exit code 0 (expected 7)
+ - test case 'subu3' failed: negresult; exit code 0 (expected -9)
+ - test case 'sw13' failed: data-above-boundary; exit code 0 (expected -11)
+ - test case 'sw14' failed: instr-bottom-boundary; exit code 0 (expected -11)
+ - test case 'sw15' failed: instr-below-boundary; exit code 0 (expected -11)
+ - test case 'sw16' failed: instr-top-boundary; exit code 0 (expected -11)
+ - test case 'sw17' failed: instr-above-boundary; exit code 0 (expected -11)
+ - test case 'sw1' failed: standard; exit code 0 (expected 13)
+ - test case 'sw2' failed: standardneg; exit code 0 (expected -5)
+ - test case 'sw5' failed: putc; exit code 0 (expected 'I' as the output; instead received '')
+ - test case 'sw6' failed: instr; exit code 0 (expected -11)
+ - test case 'sw7' failed: instr-nops; exit code 0 (expected -11)
+ - test case 'sw8' failed: addr-null; exit code 0 (expected -11)
+ - test case 'sw9' failed: getc; exit code 0 (expected -11)
+ - test case 'xor3' failed: exit code 14 (expected 0)
+ - test case 'xori3' failed: zero-extension; exit code 1 (expected 0)
+ - test case 'xori4' failed: zero-extension; exit code -1 (expected 0)

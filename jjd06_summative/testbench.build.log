@@ -1,0 +1,1595 @@
+make[1]: Entering directory '/media/sf_shared/cw/summative/working/Clarkitecture'
+make -C ./parser
+make[2]: Entering directory '/media/sf_shared/cw/summative/working/Clarkitecture/parser'
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/instructionList.o src/instructionList.cpp
+src/instructionList.cpp: In function ‘std::__cxx11::string giveStr(std::vector<std::__cxx11::basic_string<char> >)’:
+src/instructionList.cpp:82:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < strVec.size(); ++i) {
+                      ^
+src/instructionList.cpp: In function ‘bool regCheck(std::vector<std::__cxx11::basic_string<char> >&, const std::vector<int>&)’:
+src/instructionList.cpp:89:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < index.size(); ++i) {
+                      ^
+src/instructionList.cpp: In function ‘uint32_t R_TYPE(std::vector<std::__cxx11::basic_string<char> >&, const std::vector<OP_TYPE>&, int, int)’:
+src/instructionList.cpp:107:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < opcodes.size(); ++i) {
+                      ^
+src/instructionList.cpp:113:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < opcodes.size(); ++i) {
+                      ^
+src/instructionList.cpp: In function ‘uint32_t I_TYPE(std::vector<std::__cxx11::basic_string<char> >&, const std::vector<OP_TYPE>&, int, int, bool)’:
+src/instructionList.cpp:141:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < opcodes.size(); ++i) {
+                      ^
+src/instructionList.cpp:147:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < opcodes.size(); ++i) {
+                      ^
+src/instructionList.cpp: In function ‘bool regMemSeperator(std::__cxx11::string, int&, int&)’:
+src/instructionList.cpp:185:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = index+1; i < str.size(); ++i)
+                            ^
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/parser.o src/parser.cpp
+src/parser.cpp: In function ‘void binGen(std::ofstream&, std::vector<std::vector<std::__cxx11::basic_string<char> > >&)’:
+src/parser.cpp:156:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < commVector.size(); ++i) {
+                      ^
+src/parser.cpp: In function ‘bool addVec(std::istream&, std::vector<std::vector<std::__cxx11::basic_string<char> > >&, unsigned int&, std::__cxx11::string)’:
+src/parser.cpp:106:26: warning: ‘nopNum’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         for(int i = 0; i < nopNum; ++i) {
+                          ^
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/main.o src/main.cpp
+src/main.cpp: In function ‘std::__cxx11::string formatName(std::__cxx11::string)’:
+src/main.cpp:66:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (str[i] == '/' && slashIndex == -1)
+                                   ^
+mkdir -p ./bin
+g++  -o bin/parser obj/instructionList.o obj/parser.o obj/main.o
+make[2]: Leaving directory '/media/sf_shared/cw/summative/working/Clarkitecture/parser'
+mkdir -p ./bin
+mkdir -p ./tests
+cp ./testbench_src/mips_testbench ./bin/mips_testbench
+cp -r ./testbench_src/tests/*.meta ./tests
+cp -r ./testbench_src/tests/*.txt ./tests
+./testbench_src/mips_bingen ./tests
+
+
+Commands passed successfully.
+Output file generated: tests/add1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/add7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addi3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addi4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addi5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addiu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addiu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addiu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addiu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/addu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/and1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/and2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/andi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/andi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/andi3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/beq1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/beq2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/beq3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/beq4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/beq5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgez6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgezal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgezal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgezal3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgezal4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bgtz6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/blez6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltz6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltzal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltzal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltzal3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bltzal4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bne1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bne2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bne3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bne4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/bne5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/div1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/div2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/div3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/div4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/div5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/divu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/divu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/divu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/factorial1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/factorial2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/factorial3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/factorial4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/factorial5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/filedump7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/hello.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/j1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/j2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/j3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/j4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jal3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jal4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jalr6.bin
+
+
+Invalid command "<<<<<<<" on instruction number 1
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/jr6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb13.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lb9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lbu9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh13.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lh9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lhu9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lui1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lui2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lui3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw13.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw14.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw15.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw16.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw17.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lw9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwl8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/lwr6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mfhi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mfhi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mfhi3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mflo1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mflo2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mflo3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mthi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mthi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mtlo1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mtlo2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mult1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mult2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mult3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/mult4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/multu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/multu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/nopskp.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numread1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numread2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numread3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numwrite1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numwrite2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numwrite3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/numwrite4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/or1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/or2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/ori1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/ori2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/ori3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/reg0.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sb9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sh9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sll1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sll2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sllv1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sllv2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sllv3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slt1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slt2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slt3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slt4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slt5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slti1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/slti2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltiu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltiu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltiu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltiu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sltu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sra1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sra2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sra3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srav1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srav2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srav3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srav4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srl1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srl2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srl3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srlv1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srlv2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/srlv3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sub1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sub2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sub3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sub4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sub5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/subu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/subu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/subu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw10.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw11.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw12.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw13.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw14.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw15.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw16.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw17.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw4.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw5.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw6.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw7.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw8.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/sw9.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xor1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xor2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xor3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xori1.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xori2.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xori3.bin
+
+
+
+Commands passed successfully.
+Output file generated: tests/xori4.bin
+
+make[1]: Leaving directory '/media/sf_shared/cw/summative/working/Clarkitecture'

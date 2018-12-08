@@ -1,0 +1,263 @@
+Exception :   overflow: s=1073741824, t=1073741824
+Exception :   overflow: s=1073741825, t=1073741825
+Exception :   overflow: s=-2147483646, t=-2147483646
+Exception :   overflow: s=-2147483648, t=-2147483648
+Exception : Overflow.
+Exception : Overflow.
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump2' failed: EOF; exit code 1 (expected -1)
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump3' failed: EOF; exit code -1 (expected '200IQ play universe brain' as the output; instead received '	
+')
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump4' failed: EOF-offset; exit code 2 (expected 0)
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'filedump6' failed: EOF-offset; exit code 0 (expected 1)
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+sub-word access to GETC.
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Attempt to execute instruction at mis-aligned address 0x00000002.
+Exception :   unknown fncode 10
+FAIL: test case 'jr3' failed: bad-pc; exit code -12 (expected -11)
+Exception : Attempt to execute instruction at mis-aligned address 0x10000015.
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lb12' failed: getc-offset; exit code 85 (expected 72)
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lb13' failed: null+eof; exit code 9 (expected -1)
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+sub-word access to GETC.
+FAIL: test case 'lb7' failed: getc; exit code 9 (expected 72)
+sub-word access to PUTC.
+FAIL: test case 'lb8' failed: putc; exit code 0 (expected -11)
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lbu12' failed: getc-offset; exit code 85 (expected 72)
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+sub-word access to GETC.
+FAIL: test case 'lbu7' failed: getc; exit code 9 (expected 72)
+sub-word access to PUTC.
+FAIL: test case 'lbu8' failed: putc; exit code 0 (expected -11)
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lh12' failed: getc-offset; exit code -94 (expected 72)
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lh13' failed: null+eof; exit code -9 (expected -1)
+Exception : Address is not aligned.
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+sub-word access to GETC.
+FAIL: test case 'lh7' failed: getc; exit code -18 (expected 72)
+sub-word access to PUTC.
+FAIL: test case 'lh8' failed: putc; exit code 0 (expected -11)
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to GETC.
+sub-word access to GETC.
+FAIL: test case 'lhu12' failed: getc-offset; exit code -94 (expected 72)
+Exception : Address is not aligned.
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+sub-word access to GETC.
+FAIL: test case 'lhu7' failed: getc; exit code -18 (expected 72)
+sub-word access to PUTC.
+FAIL: test case 'lhu8' failed: putc; exit code 0 (expected -11)
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Address is not aligned.
+Exception : Attempt to access range [PUTC_ADDR+4,0xFFFFFFFF).
+FAIL: test case 'lw6' failed: putc; exit code 0 (expected -11)
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+sub-word access to PUTC.
+FAIL: test case 'sb4' failed: putc; exit code 0 (expected 'I' as the output; instead received 'H')
+sub-word access to GETC.
+FAIL: test case 'sb5' failed: getc; exit code 0 (expected -11)
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to access range [0,INSTR_ADDR).
+sub-word access to PUTC.
+sub-word access to PUTC.
+FAIL: test case 'sb9' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received '@,')
+sub-word access to PUTC.
+sub-word access to PUTC.
+FAIL: test case 'sh10' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received ' K')
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+sub-word access to PUTC.
+FAIL: test case 'sh4' failed: putc; exit code 0 (expected 'I' as the output; instead received '$')
+sub-word access to GETC.
+FAIL: test case 'sh5' failed: getc; exit code 0 (expected -11)
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Address is not aligned.
+Exception :     overflow, s=0, t=-2147483648
+Exception :     overflow, s=-2147483648, t=1073741824
+Exception :     overflow, s=5, t=-2147483648
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to access range [INSTR_ADDR+INSTR_LEN,DATA_ADDR).
+Exception : Address is not aligned.
+Exception : Attempt to access range [DATA_ADDR+DATA_LEN,GETC_ADDR).
+Exception : Attempt to write to instruction memory.
+Exception : Attempt to access range [0,INSTR_ADDR).
+Exception : Attempt to access range [0,INSTR_ADDR).
+FAIL: test case 'sw9' failed: getc; exit code 0 (expected -11)
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+
+
+
+27 failures were encountered
+ - test case 'filedump2' failed: EOF; exit code 1 (expected -1)
+ - test case 'filedump3' failed: EOF; exit code -1 (expected '200IQ play universe brain' as the output; instead received '	
+')
+ - test case 'filedump4' failed: EOF-offset; exit code 2 (expected 0)
+ - test case 'filedump6' failed: EOF-offset; exit code 0 (expected 1)
+ - test case 'jr3' failed: bad-pc; exit code -12 (expected -11)
+ - test case 'lb12' failed: getc-offset; exit code 85 (expected 72)
+ - test case 'lb13' failed: null+eof; exit code 9 (expected -1)
+ - test case 'lb7' failed: getc; exit code 9 (expected 72)
+ - test case 'lb8' failed: putc; exit code 0 (expected -11)
+ - test case 'lbu12' failed: getc-offset; exit code 85 (expected 72)
+ - test case 'lbu7' failed: getc; exit code 9 (expected 72)
+ - test case 'lbu8' failed: putc; exit code 0 (expected -11)
+ - test case 'lh12' failed: getc-offset; exit code -94 (expected 72)
+ - test case 'lh13' failed: null+eof; exit code -9 (expected -1)
+ - test case 'lh7' failed: getc; exit code -18 (expected 72)
+ - test case 'lh8' failed: putc; exit code 0 (expected -11)
+ - test case 'lhu12' failed: getc-offset; exit code -94 (expected 72)
+ - test case 'lhu7' failed: getc; exit code -18 (expected 72)
+ - test case 'lhu8' failed: putc; exit code 0 (expected -11)
+ - test case 'lw6' failed: putc; exit code 0 (expected -11)
+ - test case 'sb4' failed: putc; exit code 0 (expected 'I' as the output; instead received 'H')
+ - test case 'sb5' failed: getc; exit code 0 (expected -11)
+ - test case 'sb9' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received '@,')
+ - test case 'sh10' failed: putc-offset; exit code 0 (expected 'H' as the output; instead received ' K')
+ - test case 'sh4' failed: putc; exit code 0 (expected 'I' as the output; instead received '$')
+ - test case 'sh5' failed: getc; exit code 0 (expected -11)
+ - test case 'sw9' failed: getc; exit code 0 (expected -11)

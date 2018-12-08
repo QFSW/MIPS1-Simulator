@@ -1,0 +1,309 @@
+[3;J[H[2Jadd1, add, Pass, QFSW, exit code 12
+add2, add, Fail, QFSW, negative rt; exit code 0 (expected 3)
+add3, add, Fail, QFSW, negative rs; exit code 0 (expected 8)
+add4, add, Pass, QFSW, overflow; exit code -10
+add5, add, Pass, QFSW, overflow; exit code -10
+add6, add, Pass, QFSW, underflow; exit code -10
+add7, add, Pass, QFSW, underflow; exit code -10
+addi1, addi, Pass, QFSW, exit code 27
+addi2, addi, Fail, QFSW, negative immediate; exit code 0 (expected 2)
+addi3, addi, Fail, QFSW, overflow; exit code 0 (expected -10)
+addi4, addi, Fail, ChrisDeverall, underflow; exit code 0 (expected -10)
+addi5, addi, Pass, QFSW, sign-extension; exit code 0
+addiu1, addiu, Fail, QFSW, exit code 3 (expected 2)
+addiu2, addiu, Pass, QFSW, overflow; exit code 0
+addiu3, addiu, Fail, ChrisDeverall, underflow; exit code 0 (expected -100)
+addiu4, addiu, Fail, QFSW, sign-extension; exit code 1 (expected 0)
+addu1, addu, Pass, ChrisDeverall, standard; exit code 10
+addu2, addu, Fail, ChrisDeverall, overflow; exit code 0 (expected 2)
+addu3, addu, Fail, ChrisDeverall, underflow; exit code 0 (expected 1)
+and1, and, Pass, QFSW, exit code 0
+and2, and, Pass, QFSW, exit code 1
+andi1, andi, Pass, ChrisDeverall, exit code 18
+andi2, andi, Pass, ChrisDeverall, exit code 0
+andi3, andi, Pass, QFSW, zero-extension; exit code 0
+beq1, beq, Pass, QFSW, rs==rt; exit code 2
+beq2, beq, Pass, QFSW, rs!=rt; exit code 4
+beq3, beq, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+beq4, beq, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+beq5, beq, Pass, QFSW, backwards-branch; exit code 0
+bgez1, bgez, Pass, QFSW, rs==0; exit code 2
+bgez2, bgez, Pass, QFSW, rs<0; exit code 4
+bgez3, bgez, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bgez4, bgez, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bgez5, bgez, Fail, QFSW, backwards-branch; exit code 69 (expected 0)
+bgez6, bgez, Fail, QFSW, rs>0; exit code 4 (expected 2)
+bgezal1, bgezal, Pass, QFSW, rs>0; exit code 17
+bgezal2, bgezal, Pass, QFSW, rs<0; exit code 4
+bgezal3, bgezal, Pass, QFSW, link-set; exit code 13
+bgezal4, bgezal, Fail, QFSW, rs=0; exit code 7 (expected 17)
+bgtz1, bgtz, Pass, QFSW, rs>0; exit code 2
+bgtz2, bgtz, Pass, QFSW, rs=0; exit code 4
+bgtz3, bgtz, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bgtz4, bgtz, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bgtz5, bgtz, Fail, QFSW, backwards-branch; exit code 69 (expected 0)
+bgtz6, bgtz, Pass, QFSW, rs<0; exit code 4
+blez1, blez, Pass, QFSW, rs>0; exit code 4
+blez2, blez, Fail, QFSW, rs=0; exit code 4 (expected 2)
+blez3, blez, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+blez4, blez, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+blez5, blez, Fail, QFSW, backwards-branch; exit code 69 (expected 0)
+blez6, blez, Fail, QFSW, rs<0; exit code 4 (expected 2)
+bltz1, bltz, Pass, QFSW, rs>0; exit code 4
+bltz2, bltz, Pass, QFSW, rs=0; exit code 4
+bltz3, bltz, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bltz4, bltz, Fail, QFSW, bad-pc; exit code 0 (expected -11)
+bltz5, bltz, Fail, QFSW, backwards-branch; exit code 69 (expected 0)
+bltz6, bltz, Fail, QFSW, rs<0; exit code 4 (expected 2)
+bltzal1, bltzal, Pass, QFSW, rs>0; exit code 7
+bltzal2, bltzal, Fail, QFSW, rs<0; exit code 4 (expected 14)
+bltzal3, bgezal, Pass, QFSW, link-set; exit code 13
+bltzal4, bltzal, Pass, QFSW, rs=0; exit code 4
+bne1, bne, Pass, QFSW, rs==rt; exit code 4
+bne2, bne, Fail, QFSW, rs!=rt; exit code 4 (expected 2)
+bne3, bne, Fail, QFSW, bad-pc; exit code 100 (expected -11)
+bne4, bne, Fail, QFSW, bad-pc; exit code 100 (expected -11)
+bne5, bne, Pass, QFSW, backwards-branch; exit code 0
+div1, div, Pass, ChrisDeverall, standard_quot; exit code 12
+div2, div, Pass, ChrisDeverall, standard_remain; exit code 0
+div3, div, Fail, ChrisDeverall, standard_negative; exit code 0 (expected -4)
+div4, div, Pass, ChrisDeverall, div_zero; exit code 0
+div5, div, Pass, ChrisDeverall, overflow; exit code 0
+divu1, divu, Fail, ChrisDeverall, standard; exit code 0 (expected 2)
+divu2, divu, Pass, ChrisDeverall, negative; exit code -1
+divu3, divu, Pass, ChrisDeverall, div_zero; exit code 0
+factorial1, stack, Pass, QFSW, 1!; exit code 1
+factorial2, stack, Pass, QFSW, 3!; exit code 6
+factorial3, stack, Pass, QFSW, 4!; exit code 24
+factorial4, stack, Pass, QFSW, 5!; exit code 120
+factorial5, stack, Pass, QFSW, stackdepth=0x5000; exit code 0
+filedump1, lw, Pass, QFSW, EOF; exit code -1
+filedump2, lh, Fail, QFSW, EOF; exit code 1 (expected -1)
+filedump3, lb, Fail, QFSW, EOF; exit code -1 (expected '200IQ play universe brain' as the output; instead received '	
+')
+filedump4, lh, Fail, QFSW, EOF-offset; exit code 2 (expected 0)
+filedump5, lb, Pass, QFSW, EOF-offset; exit code 0
+filedump6, lhu, Fail, QFSW, EOF-offset; exit code 0 (expected 1)
+filedump7, lbu, Pass, QFSW, EOF-offset; exit code 1
+hello, sw, Pass, QFSW, testing PUTC; exit code 0
+j1, j, Pass, QFSW, exit code 3
+j2, j, Pass, QFSW, bad-pc; exit code -11
+j3, j, Fail, QFSW, delay-slot; exit code 14 (expected 12)
+j4, j, Fail, QFSW, exit code 4 (expected 3)
+jal1, jal, Pass, QFSW, exit code 5
+jal2, jal, Pass, QFSW, bad-pc; exit code -11
+jal3, jal, Fail, QFSW, delay-slot; exit code 14 (expected 12)
+jal4, jal, Fail, QFSW, chain; exit code 0 (expected 20)
+jalr1, jalr, Pass, QFSW, exit code 20
+jalr2, jalr, Pass, QFSW, exit code 20
+jalr3, jalr, Fail, QFSW, delay-slot; exit code 5 (expected 21)
+jalr4, jalr, Fail, QFSW, exit code -11 (expected 0)
+jalr5, jalr, Pass, QFSW, exit code 5
+jalr6, jalr, Fail, QFSW, exit code -11 (expected 8)
+jr1, jr, Pass, QFSW, exit code 0
+jr2, jr, Pass, QFSW, bad-pc; exit code -11
+jr3, jr, Pass, QFSW, bad-pc; exit code -11
+jr4, jr, Fail, QFSW, delay-slot; exit code -11 (expected 2)
+jr5, jr, Fail, QFSW, exit code -11 (expected 3)
+jr6, jr, Pass, QFSW, misaligned-pc; exit code -11
+lb10, lb, Fail, QFSW, instr-nops; exit code -11 (expected 0)
+lb11, lb, Pass, QFSW, addr-null; exit code -11
+lb12, lb, Fail, ChrisDeverall, getc-offset; exit code 0 (expected 72)
+lb13, lb, Fail, ChrisDeverall, null+eof; exit code 0 (expected -1)
+lb1, lb, Fail, QFSW, exit code 0 (expected 100)
+lb2, lb, Fail, QFSW, exit code 0 (expected 100)
+lb3, lb, Fail, QFSW, exit code 0 (expected 100)
+lb4, lb, Fail, QFSW, sign-extension; exit code 0 (expected -1)
+lb5, lb, Fail, QFSW, exit code 0 (expected 1)
+lb6, lb, Pass, QFSW, outofrange; exit code -11
+lb7, lb, Fail, QFSW, getc; exit code 0 (expected 72)
+lb8, lb, Fail, QFSW, putc; exit code 0 (expected -11)
+lb9, lb, Fail, QFSW, instr; exit code 0 (expected 13)
+lbu10, lbu, Pass, QFSW, instr-nops; exit code 0
+lbu11, lbu, Pass, QFSW, addr-null; exit code -11
+lbu12, lbu, Fail, ChrisDeverall, getc-offset; exit code 0 (expected 72)
+lbu1, lbu, Fail, QFSW, exit code 0 (expected 100)
+lbu2, lbu, Fail, QFSW, exit code 0 (expected 100)
+lbu3, lbu, Fail, QFSW, exit code 0 (expected 100)
+lbu4, lbu, Pass, QFSW, zero-extension; exit code 0
+lbu5, lbu, Fail, QFSW, exit code 0 (expected 1)
+lbu6, lbu, Pass, QFSW, outofrange; exit code -11
+lbu7, lbu, Fail, QFSW, getc; exit code 0 (expected 72)
+lbu8, lbu, Fail, QFSW, putc; exit code 0 (expected -11)
+lbu9, lbu, Fail, QFSW, instr; exit code 0 (expected 13)
+lh10, lh, Pass, QFSW, instr-nops; exit code 0
+lh11, lh, Pass, QFSW, addr-null; exit code -11
+lh12, lh, Fail, ChrisDeverall, getc-offset; exit code 0 (expected 72)
+lh13, lh, Fail, ChrisDeverall, null+eof; exit code 0 (expected -1)
+lh1, lh, Fail, QFSW, exit code 0 (expected 100)
+lh2, lh, Pass, QFSW, misaligned; exit code -11
+lh3, lh, Fail, QFSW, exit code 0 (expected 100)
+lh4, lh, Fail, QFSW, sign-extension; exit code 0 (expected -1)
+lh5, lh, Fail, QFSW, exit code 0 (expected 3)
+lh6, lh, Pass, QFSW, outofrange; exit code -11
+lh7, lh, Fail, QFSW, getc; exit code 0 (expected 72)
+lh8, lh, Fail, QFSW, putc; exit code 0 (expected -11)
+lh9, lh, Fail, QFSW, instr; exit code 0 (expected 13)
+lhu10, lhu, Pass, QFSW, instr-nops; exit code 0
+lhu11, lhu, Pass, QFSW, addr-null; exit code -11
+lhu12, lhu, Fail, ChrisDeverall, getc-offset; exit code 0 (expected 72)
+lhu1, lhu, Fail, QFSW, exit code 0 (expected 100)
+lhu2, lhu, Pass, QFSW, misaligned; exit code -11
+lhu3, lhu, Fail, QFSW, exit code 0 (expected 100)
+lhu4, lhu, Pass, QFSW, zero-extension; exit code 0
+lhu5, lhu, Fail, QFSW, exit code 0 (expected 3)
+lhu6, lhu, Pass, QFSW, outofrange; exit code -11
+lhu7, lhu, Fail, QFSW, getc; exit code 0 (expected 72)
+lhu8, lhu, Fail, QFSW, putc; exit code 0 (expected -11)
+lhu9, lhu, Fail, QFSW, instr; exit code 0 (expected 13)
+lui1, lui, Pass, QFSW, exit code 100
+lui2, lui, Pass, QFSW, exit code 0
+lui3, lui, Fail, QFSW, exit code 0 (expected 1)
+lw10, lw, Fail, QFSW, data-bottom-boundary; exit code -11 (expected 0)
+lw11, lw, Pass, QFSW, data-below-boundary; exit code -11
+lw12, lw, Pass, QFSW, data-top-boundary; exit code 0
+lw13, lw, Pass, QFSW, data-above-boundary; exit code -11
+lw14, lw, Pass, QFSW, instr-bottom-boundary; exit code 0
+lw15, lw, Pass, QFSW, instr-below-boundary; exit code -11
+lw16, lw, Pass, QFSW, instr-top-boundary; exit code 0
+lw17, lw, Pass, QFSW, instr-above-boundary; exit code -11
+lw1, lw, Fail, QFSW, exit code 0 (expected 100)
+lw2, lw, Pass, QFSW, misaligned word; exit code -11
+lw3, lw, Pass, QFSW, uninitialised word; exit code 0
+lw4, lw, Pass, ChrisDeverall, outofrange; exit code -11
+lw5, lw, Fail, ChrisDeverall, getc; exit code 0 (expected 72)
+lw6, lw, Fail, ChrisDeverall, putc; exit code 0 (expected -11)
+lw7, lw, Fail, ChrisDeverall, instr; exit code 0 (expected 13)
+lw8, lw, Pass, QFSW, instr-nops; exit code 0
+lw9, lw, Pass, QFSW, addr-null; exit code -11
+lwl1, lwl, Pass, ChrisDeverall, aligned; exit code 15
+lwl2, lwl, Pass, ChrisDeverall, misaligned1; exit code 34
+lwl3, lwl, Fail, ChrisDeverall, misalignedby1byte1; exit code -1 (expected 102)
+lwl4, lwl, Pass, ChrisDeverall, misalignedby2; exit code 111
+lwl5, lwl, Fail, ChrisDeverall, misalignedby3; exit code 0 (expected 102)
+lwl6, lwl, Pass, QFSW, addr-null; exit code -11
+lwl7, lwl, Fail, QFSW, getc; exit code 0 (expected 72)
+lwl8, lwl, Fail, QFSW, instr; exit code 0 (expected 14)
+lwr1, lwr, Pass, ChrisDeverall, aligned; exit code 102
+lwr2, lwr, Pass, ChrisDeverall, misaligned1; exit code 17
+lwr3, lwr, Pass, ChrisDeverall, misaligned2; exit code 34
+lwr4, lwr, Fail, ChrisDeverall, misaligned3; exit code 68 (expected 85)
+lwr5, lwr, Fail, ChrisDeverall, getc; exit code 0 (expected 72)
+lwr6, lwr, Pass, QFSW, addr-null; exit code -11
+mfhi1, mfhi, Pass, ChrisDeverall, pos; exit code 15
+mfhi2, mthi, Pass, ChrisDeverall, neg; exit code -22
+mfhi3, mfhi, Fail, ChrisDeverall, override; exit code 0 (expected 7)
+mflo1, mflo, Pass, ChrisDeverall, pos; exit code 6
+mflo2, mflo, Pass, ChrisDeverall, neg; exit code -6
+mflo3, mflo, Fail, ChrisDeverall, overridinghi; exit code 0 (expected 12)
+mthi1, mthi, Pass, ChrisDeverall, pos; exit code 14
+mthi2, mthi, Pass, ChrisDeverall, neg; exit code -20
+mtlo1, mtlo, Pass, ChrisDeverall, pos; exit code 5
+mtlo2, mtlo, Pass, ChrisDeverall, neg; exit code -5
+mult1, mult, Pass, ChrisDeverall, standard; exit code 12
+mult2, mult, Pass, ChrisDeverall, negative; exit code 35
+mult3, mult, Fail, ChrisDeverall, overflow; exit code 0 (expected -128)
+mult4, mult, Pass, ChrisDeverall, overflow; exit code 0
+multu1, multu, Pass, ChrisDeverall, standard; exit code 12
+multu2, multu, Pass, ChrisDeverall, standard_large; exit code 127
+nopskp, internal, Pass, QFSW, detects-false-nopskp; exit code 69
+numread1, function, Pass, QFSW, in=7; exit code 7
+numread2, function, Pass, QFSW, in=12; exit code 12
+numread3, function, Pass, QFSW, in=126; exit code 126
+numwrite1, function, Pass, QFSW, in=7; exit code 0
+numwrite2, function, Pass, QFSW, in=49; exit code 0
+numwrite3, function, Pass, QFSW, in=666; exit code 0
+numwrite4, function, Pass, QFSW, in=6969; exit code 0
+or1, or, Pass, QFSW, exit code 1
+or2, or, Pass, QFSW, exit code 3
+ori1, ori, Pass, ChrisDeverall, exit code -1
+ori2, ori, Pass, ChrisDeverall, exit code 0
+ori3, ori, Fail, QFSW, zero-extension; exit code 1 (expected 0)
+reg0, internal, Pass, QFSW, tests-reg0; exit code 0
+sb10, sb, Pass, QFSW, data-top-boundary; exit code 0
+sb11, sb, Pass, QFSW, data-above-boundary; exit code -11
+sb1, sb, Fail, QFSW, standard; exit code 0 (expected 13)
+sb2, sb, Fail, QFSW, composite; exit code 0 (expected 69)
+sb3, sb, Pass, QFSW, above; exit code -11
+sb4, sb, Fail, QFSW, putc; exit code 0 (expected 'I' as the output; instead received '')
+sb5, sb, Fail, QFSW, getc; exit code 0 (expected -11)
+sb6, sb, Fail, QFSW, instr; exit code 0 (expected -11)
+sb7, sb, Fail, QFSW, instr-nops; exit code 0 (expected -11)
+sb8, sb, Fail, QFSW, addr-null; exit code 0 (expected -11)
+sb9, sb, Fail, ChrisDeverall, putc-offset; exit code 0 (expected 'H' as the output; instead received '')
+sh10, sh, Fail, ChrisDeverall, putc-offset; exit code 0 (expected 'H' as the output; instead received ' K')
+sh11, sh, Pass, QFSW, data-top-boundary; exit code 0
+sh12, sh, Fail, QFSW, data-above-boundary; exit code 0 (expected -11)
+sh1, sh, Fail, QFSW, standard; exit code 0 (expected 13)
+sh2, sh, Fail, QFSW, composite; exit code 0 (expected 69)
+sh3, sh, Pass, QFSW, above; exit code -11
+sh4, sh, Fail, QFSW, putc; exit code 0 (expected 'I' as the output; instead received '')
+sh5, sh, Fail, QFSW, getc; exit code 0 (expected -11)
+sh6, sh, Fail, QFSW, instr; exit code 0 (expected -11)
+sh7, sh, Fail, QFSW, instr-nops; exit code 0 (expected -11)
+sh8, sh, Fail, QFSW, addr-null; exit code 0 (expected -11)
+sh9, sh, Fail, QFSW, misaligned; exit code 0 (expected -11)
+sll1, sll, Pass, ChrisDeverall, standardpos; exit code 60
+sll2, sll, Pass, ChrisDeverall, standardneg; exit code -8
+sllv1, sllv, Pass, ChrisDeverall, standardpos; exit code 56
+sllv2, sllv, Pass, ChrisDeverall, standardneg; exit code -12
+sllv3, sllv, Fail, ChrisDeverall, largevar; exit code 0 (expected 6)
+slt1, slt, Pass, ChrisDeverall, standard; exit code 1
+slt2, slt, Pass, ChrisDeverall, standardneg; exit code 0
+slt3, slt, Pass, ChrisDeverall, diffsigns; exit code 0
+slt4, slt, Pass, ChrisDeverall, equal; exit code 0
+slt5, slt, Fail, QFSW, exit code 0 (expected 1)
+slti1, slti, Pass, ChrisDeverall, standard; exit code 1
+slti2, slti, Pass, ChrisDeverall, standardneg; exit code 0
+sltiu1, sltiu, Pass, ChrisDeverall, standard; exit code 1
+sltiu2, sltiu, Pass, ChrisDeverall, standardneg; exit code 1
+sltiu3, sltiu, Pass, ChrisDeverall, standardneg; exit code 0
+sltiu4, sltiu, Fail, QFSW, sign-extension; exit code 0 (expected 1)
+sltu1, sltu, Pass, ChrisDeverall, standard; exit code 1
+sltu2, sltu, Pass, ChrisDeverall, standardneg; exit code 0
+sra1, sra, Pass, ChrisDeverall, standardpos; exit code 4
+sra2, sra, Pass, ChrisDeverall, standardneg; exit code -2
+sra3, sra, Fail, ChrisDeverall, attemptToChangeSign; exit code 0 (expected -1)
+srav1, srav, Pass, ChrisDeverall, standardpos; exit code 2
+srav2, srav, Pass, ChrisDeverall, standardneg; exit code -4
+srav3, srav, Fail, ChrisDeverall, largevarpos; exit code 0 (expected 7)
+srav4, srav, Fail, ChrisDeverall, largevarneg; exit code 0 (expected -3)
+srl1, srl, Pass, ChrisDeverall, standardpos; exit code 8
+srl2, srl, Pass, ChrisDeverall, standardneg; exit code -2
+srl3, srl, Fail, ChrisDeverall, signchange; exit code 0 (expected 1)
+srlv1, srlv, Pass, ChrisDeverall, standardpos; exit code 2
+srlv2, srlv, Pass, ChrisDeverall, standardneg; exit code -2
+srlv3, srlv, Fail, ChrisDeverall, largevar; exit code 0 (expected 7)
+sub1, sub, Pass, QFSW, exit code 51
+sub2, sub, Pass, ChrisDeverall, overflow; exit code -10
+sub3, sub, Pass, QFSW, exit code 0
+sub4, sub, Pass, ChrisDeverall, underflow; exit code -10
+sub5, sub, Pass, ChrisDeverall, overflow; exit code -10
+subu1, subu, Pass, ChrisDeverall, standard; exit code 16
+subu2, subu, Pass, ChrisDeverall, standardneg; exit code 3
+subu3, subu, Fail, ChrisDeverall, negresult; exit code 0 (expected -9)
+sw10, sw, Pass, QFSW, data-bottom-boundary; exit code 0
+sw11, sw, Pass, QFSW, data-below-boundary; exit code -11
+sw12, sw, Pass, QFSW, data-top-boundary; exit code 0
+sw13, sw, Fail, QFSW, data-above-boundary; exit code 0 (expected -11)
+sw14, sw, Fail, QFSW, instr-bottom-boundary; exit code 0 (expected -11)
+sw15, sw, Fail, QFSW, instr-below-boundary; exit code 0 (expected -11)
+sw16, lw, Fail, QFSW, instr-top-boundary; exit code 0 (expected -11)
+sw17, sw, Fail, QFSW, instr-above-boundary; exit code 0 (expected -11)
+sw1, sw, Fail, ChrisDeverall, standard; exit code 0 (expected 13)
+sw2, sw, Fail, ChrisDeverall, standardneg; exit code 0 (expected -5)
+sw3, sw, Pass, ChrisDeverall, misaligned; exit code -11
+sw4, sw, Pass, ChrisDeverall, above; exit code -11
+sw5, sw, Fail, ChrisDeverall, putc; exit code 0 (expected 'I' as the output; instead received '')
+sw6, sw, Fail, ChrisDeverall, instr; exit code 0 (expected -11)
+sw7, sw, Fail, QFSW, instr-nops; exit code 0 (expected -11)
+sw8, sw, Fail, QFSW, addr-null; exit code 0 (expected -11)
+sw9, sw, Fail, QFSW, getc; exit code 0 (expected -11)
+xor1, xor, Pass, QFSW, exit code 1
+xor2, xor, Pass, QFSW, exit code 2
+xor3, xor, Fail, ChrisDeverall, exit code 14 (expected 0)
+xori1, xori, Pass, ChrisDeverall, exit code 31
+xori2, xori, Pass, ChrisDeverall, exit code -1
+xori3, xori, Fail, QFSW, zero-extension; exit code 1 (expected 0)
+xori4, xori, Fail, QFSW, zero-extension; exit code -1 (expected 0)
+

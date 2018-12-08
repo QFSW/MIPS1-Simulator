@@ -1,0 +1,19 @@
+Clarkitecture
+
+Results
+-------
+
+simulator: 219 of 242 tests passed
+testbench-positive: 280 of 307 tests passed
+testbench-negative: 166 of 307 tests passed
+testbench-size: 307
+
+Key
+---
+
+simulator: Model testbench run on group simulator. 100% of tests will pass with ideal simulator.
+testbench-positive: Group testbench run on model simulator. 100% of tests will pass with ideal testbench.
+testbench-negative: Group testbench run on buggy simulator. Bug was tailored to each test being run. 0% of tests will pass with ideal testbench.
+testbench-size: Number of tests in group testbench.
+
+Malformed CSV output may have affected determination of testbench-related statistics and/or behaviour of negative testbench testing.

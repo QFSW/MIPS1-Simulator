@@ -1,0 +1,67 @@
+make[1]: Entering directory '/media/sf_shared/cw/summative/working/Clarkitecture'
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/Instructions.o src/Instructions.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/RegisterMap.o src/RegisterMap.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/Simulator.o src/Simulator.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/Utils.o src/Utils.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/IInstructions.o src/IInstructions.cpp
+src/IInstructions.cpp: In member function ‘virtual void Clarkitechture::MIPS::LWRInstr::execute(Clarkitechture::MIPS::MemoryMap&, Clarkitechture::MIPS::RegisterMap&)’:
+src/IInstructions.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (int i = 0; i <= byteIndex; ++i)
+                       ^
+In file included from src/Instructions.hpp:7:0,
+                 from src/IInstructions.hpp:5,
+                 from src/IInstructions.cpp:1:
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = unsigned int; size_t = long unsigned int]’:
+src/IInstructions.cpp:73:35:   required from here
+src/MemoryMap.hpp:45:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                     for (int i = 0; i < sizeof(T); i++)
+                                       ^
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = unsigned char; size_t = long unsigned int]’:
+src/IInstructions.cpp:84:31:   required from here
+src/MemoryMap.hpp:45:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = short unsigned int; size_t = long unsigned int]’:
+src/IInstructions.cpp:147:35:   required from here
+src/MemoryMap.hpp:45:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/MemoryMap.hpp: In instantiation of ‘void Clarkitechture::MIPS::MemoryMap::write(size_t, T) [with T = unsigned int; size_t = long unsigned int]’:
+src/IInstructions.cpp:170:35:   required from here
+src/MemoryMap.hpp:80:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                     for (int i = 0; i < sizeof(T); i++)
+                                       ^
+src/MemoryMap.hpp: In instantiation of ‘void Clarkitechture::MIPS::MemoryMap::write(size_t, T) [with T = unsigned char; size_t = long unsigned int]’:
+src/IInstructions.cpp:177:31:   required from here
+src/MemoryMap.hpp:80:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/MemoryMap.hpp: In instantiation of ‘void Clarkitechture::MIPS::MemoryMap::write(size_t, T) [with T = short unsigned int; size_t = long unsigned int]’:
+src/IInstructions.cpp:184:35:   required from here
+src/MemoryMap.hpp:80:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::bswap(T) [with T = unsigned int]’:
+src/MemoryMap.hpp:57:38:   required from ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = unsigned int; size_t = long unsigned int]’
+src/IInstructions.cpp:73:35:   required from here
+src/MemoryMap.hpp:94:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                 for (int i = 0; i < sizeof(T); ++i)
+                                   ^
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::bswap(T) [with T = unsigned char]’:
+src/MemoryMap.hpp:57:38:   required from ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = unsigned char; size_t = long unsigned int]’
+src/IInstructions.cpp:84:31:   required from here
+src/MemoryMap.hpp:94:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/MemoryMap.hpp: In instantiation of ‘T Clarkitechture::MIPS::MemoryMap::bswap(T) [with T = short unsigned int]’:
+src/MemoryMap.hpp:57:38:   required from ‘T Clarkitechture::MIPS::MemoryMap::read(size_t) [with T = short unsigned int; size_t = long unsigned int]’
+src/IInstructions.cpp:147:35:   required from here
+src/MemoryMap.hpp:94:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/ExceptionHandling.o src/ExceptionHandling.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/RInstructions.o src/RInstructions.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/JInstructions.o src/JInstructions.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/main.o src/main.cpp
+mkdir -p ./obj
+g++  -std=c++11 -Wall -MMD -O3 -mavx -c -o obj/MemoryMap.o src/MemoryMap.cpp
+mkdir -p ./bin
+g++  -o bin/mips_simulator obj/Instructions.o obj/RegisterMap.o obj/Simulator.o obj/Utils.o obj/IInstructions.o obj/ExceptionHandling.o obj/RInstructions.o obj/JInstructions.o obj/main.o obj/MemoryMap.o
+make[1]: Leaving directory '/media/sf_shared/cw/summative/working/Clarkitecture'
