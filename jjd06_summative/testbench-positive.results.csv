@@ -102,7 +102,7 @@ jalr5, jalr, Pass, QFSW, exit code 5
 jalr6, jalr, Pass, QFSW, exit code 8
 jr1, jr, Pass, QFSW, exit code 0
 jr2, jr, Pass, QFSW, bad-pc; exit code -11
-jr3, jr, Fail, QFSW, bad-pc; exit code -12 (expected -11)
+jr3, jr, Pass, QFSW, bad-pc; exit code -11
 jr4, jr, Pass, QFSW, delay-slot; exit code 2
 jr5, jr, Pass, QFSW, exit code 3
 jr6, jr, Pass, QFSW, misaligned-pc; exit code -11
@@ -117,7 +117,7 @@ lb4, lb, Pass, QFSW, sign-extension; exit code -1
 lb5, lb, Pass, QFSW, exit code 1
 lb6, lb, Pass, QFSW, outofrange; exit code -11
 lb7, lb, Fail, QFSW, getc; exit code 9 (expected 72)
-lb8, lb, Fail, QFSW, putc; exit code 0 (expected -11)
+lb8, lb, Pass, QFSW, putc; exit code -11
 lb9, lb, Pass, QFSW, instr; exit code 13
 lbu10, lbu, Pass, QFSW, instr-nops; exit code 0
 lbu11, lbu, Pass, QFSW, addr-null; exit code -11
@@ -129,7 +129,7 @@ lbu4, lbu, Pass, QFSW, zero-extension; exit code 0
 lbu5, lbu, Pass, QFSW, exit code 1
 lbu6, lbu, Pass, QFSW, outofrange; exit code -11
 lbu7, lbu, Fail, QFSW, getc; exit code 9 (expected 72)
-lbu8, lbu, Fail, QFSW, putc; exit code 0 (expected -11)
+lbu8, lbu, Pass, QFSW, putc; exit code -11
 lbu9, lbu, Pass, QFSW, instr; exit code 13
 lh10, lh, Pass, QFSW, instr-nops; exit code 0
 lh11, lh, Pass, QFSW, addr-null; exit code -11
@@ -142,7 +142,7 @@ lh4, lh, Pass, QFSW, sign-extension; exit code -1
 lh5, lh, Pass, QFSW, exit code 3
 lh6, lh, Pass, QFSW, outofrange; exit code -11
 lh7, lh, Fail, QFSW, getc; exit code -18 (expected 72)
-lh8, lh, Fail, QFSW, putc; exit code 0 (expected -11)
+lh8, lh, Pass, QFSW, putc; exit code -11
 lh9, lh, Pass, QFSW, instr; exit code 13
 lhu10, lhu, Pass, QFSW, instr-nops; exit code 0
 lhu11, lhu, Pass, QFSW, addr-null; exit code -11
@@ -154,7 +154,7 @@ lhu4, lhu, Pass, QFSW, zero-extension; exit code 0
 lhu5, lhu, Pass, QFSW, exit code 3
 lhu6, lhu, Pass, QFSW, outofrange; exit code -11
 lhu7, lhu, Fail, QFSW, getc; exit code -18 (expected 72)
-lhu8, lhu, Fail, QFSW, putc; exit code 0 (expected -11)
+lhu8, lhu, Pass, QFSW, putc; exit code -11
 lhu9, lhu, Pass, QFSW, instr; exit code 13
 lui1, lui, Pass, QFSW, exit code 100
 lui2, lui, Pass, QFSW, exit code 0
@@ -172,7 +172,7 @@ lw2, lw, Pass, QFSW, misaligned word; exit code -11
 lw3, lw, Pass, QFSW, uninitialised word; exit code 0
 lw4, lw, Pass, ChrisDeverall, outofrange; exit code -11
 lw5, lw, Pass, ChrisDeverall, getc; exit code 72
-lw6, lw, Fail, ChrisDeverall, putc; exit code 0 (expected -11)
+lw6, lw, Pass, ChrisDeverall, putc; exit code -11
 lw7, lw, Pass, ChrisDeverall, instr; exit code 13
 lw8, lw, Pass, QFSW, instr-nops; exit code 0
 lw9, lw, Pass, QFSW, addr-null; exit code -11
@@ -226,7 +226,7 @@ sb1, sb, Pass, QFSW, standard; exit code 13
 sb2, sb, Pass, QFSW, composite; exit code 69
 sb3, sb, Pass, QFSW, above; exit code -11
 sb4, sb, Fail, QFSW, putc; exit code 0 (expected 'I' as the output; instead received 'H')
-sb5, sb, Fail, QFSW, getc; exit code 0 (expected -11)
+sb5, sb, Pass, QFSW, getc; exit code -11
 sb6, sb, Pass, QFSW, instr; exit code -11
 sb7, sb, Pass, QFSW, instr-nops; exit code -11
 sb8, sb, Pass, QFSW, addr-null; exit code -11
@@ -238,7 +238,7 @@ sh1, sh, Pass, QFSW, standard; exit code 13
 sh2, sh, Pass, QFSW, composite; exit code 69
 sh3, sh, Pass, QFSW, above; exit code -11
 sh4, sh, Fail, QFSW, putc; exit code 0 (expected 'I' as the output; instead received '$')
-sh5, sh, Fail, QFSW, getc; exit code 0 (expected -11)
+sh5, sh, Pass, QFSW, getc; exit code -11
 sh6, sh, Pass, QFSW, instr; exit code -11
 sh7, sh, Pass, QFSW, instr-nops; exit code -11
 sh8, sh, Pass, QFSW, addr-null; exit code -11
@@ -298,7 +298,7 @@ sw5, sw, Pass, ChrisDeverall, putc; exit code 0
 sw6, sw, Pass, ChrisDeverall, instr; exit code -11
 sw7, sw, Pass, QFSW, instr-nops; exit code -11
 sw8, sw, Pass, QFSW, addr-null; exit code -11
-sw9, sw, Fail, QFSW, getc; exit code 0 (expected -11)
+sw9, sw, Pass, QFSW, getc; exit code -11
 xor1, xor, Pass, QFSW, exit code 1
 xor2, xor, Pass, QFSW, exit code 2
 xor3, xor, Pass, ChrisDeverall, exit code 0

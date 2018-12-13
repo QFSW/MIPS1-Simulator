@@ -4,8 +4,8 @@ Results
 -------
 
 simulator: 219 of 242 tests passed
-testbench-positive: 280 of 307 tests passed
-testbench-negative: 166 of 307 tests passed
+testbench-positive: 289 of 307 tests passed
+testbench-negative: 140 of 307 tests passed
 testbench-size: 307
 
 Key
