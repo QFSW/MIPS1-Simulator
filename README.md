@@ -9,3 +9,5 @@ Simulator written in `C++` and testbench written in `bash`
 `make testbench` to build the testbench
 
 `make run_tests` to build both the simulator and the testbench, and then run the testbench on the simulator
+
+Created by [QFSW](https://github.com/QFSW) and [ChrisDeverall](https://github.com/ChrisDeverall)
